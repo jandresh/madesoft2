@@ -1,0 +1,12 @@
+version: "3.7"
+services:
+  metapubws:
+    build: .
+    ports:
+      - "5000:5000"
+    networks:
+      - pipeline
+networks:
+  pipeline:
+    name: custompipeline
+    driver: bridge

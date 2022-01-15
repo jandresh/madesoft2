@@ -1,0 +1,33 @@
+version: "3.7"
+services:
+  mysqlws:
+    build: ./app
+    links:
+      - db
+    ports:
+      - "5001:5000"
+    networks:
+      - pipeline
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'adccali'
+      MYSQL_USER: 'adccali'
+      MYSQL_PASSWORD: 'adccali'
+      MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - my-db:/var/lib/mysql
+    command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_spanish_ci']
+    networks:
+      - pipeline
+networks:
+  pipeline:
+    external: true
+    name: custompipeline
+volumes:
+  my-db: null

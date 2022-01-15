@@ -1,0 +1,115 @@
+cáncer pulmón
+cáncer prostata
+cáncer mama
+cáncer ovario
+cáncer cervix
+cáncer pelvis
+cáncer vejiga
+cáncer metástasis
+cáncer estómago
+cáncer huesos
+cáncer tiroides
+cáncer colon
+cáncer cuello uterino
+cáncer quimioterapia
+cáncer radioterapia
+cáncer tratamiento
+tumores cerebrales
+cáncer piel
+cáncer triple negativo
+Cáncer fumador
+Cáncer mutación
+Leucemia
+neoplasia pulmonar
+neoplasia maligna
+carcinoma pulmonar
+carcinoma escamoso pulmón
+adenocarcinoma pulmón
+carcinoma celulas grandes
+carcinoma celulas pequeñas
+carcinoma quimioterapia
+carcinoma radioterapia
+células malignas
+células cancerosas
+células cancerígenas
+carcinoma  infiltrante
+carcinoma mamario
+carcinoma in situ
+Carcinoma lobulillar
+Carcinoma ductal
+Carcinoma invasivo
+Melanoma
+Linfoma
+paciente oncológico
+efectos adversos medicamentos
+efectos secundarios medicamentos
+Terapia reemplazo hormonal
+Carboplatino
+Pemetrexed
+Cisplatino
+Vinorelbina
+Gemcitabina
+Metoclopramida
+Doxetacel
+bevacizumab
+Taxol
+Ciclofosfamida
+Doxorrubicina
+Metotrexato
+Cabazitaxel
+Capecitabina 
+tratamiento hormonal
+Ciclofosfamida
+Etopósido
+Oxaliplatino
+Taxotere
+Trifluridina
+Temozolomida
+Dacarbazina
+Amoxicilina
+Penicilina
+Tetraciclina
+Ticarcilina
+Azitromicina
+Gentamicina
+Dexametasona
+Ivermectina
+Hidroxicloroquina
+Inmunoterapia
+diabetes
+enfermedad cardiovascular
+hipertensión arterial
+presión arterial
+dislipidemia
+hipotiroidismo
+trombopenia
+neuropatia
+dislipemia
+enfisema
+Trombosis venosa profunda
+Adenopatías
+Adenopatía
+sistema inmunológico
+Osteoporosis
+insuficiencia respiratoria
+insuficiencia cardiaca
+deterioro cognitivo
+esclerosis múltiple
+úlcera gastroduodenal
+ictus isquémico
+Accidente cerebrovascular
+epilepsia
+Uropatias
+Hipercolesterolemia
+reacciones alérgicas
+murmullo vesicular 
+obstrucción pulmonar crónica
+Anemia
+Mastectomía
+Linfadenectomía
+Tumorectomía
+Lobectomía
+oncología médica
+Cirugía coronaria
+Cirugía valvular
+Neumonectomía
