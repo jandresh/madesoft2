@@ -29,7 +29,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def helloworld():
-    return 'metapubws endpoints: /title, /abstract, /pmids'
+    return 'metapubws endpoints: "/title", /abstract, /pmids, /metadata, /pmid2pdf'
 
 #
 # *****title_from_pmid()******
