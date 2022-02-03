@@ -178,7 +178,7 @@ def scroll2(search_url, query, ptid):
 # *****query_core******
 # Este metodo es invocado de esta forma:
 # curl -X POST -H "Content-type: application/json" -d '{ "query": "carcinoma lobulillar de mama" }' http://localhost:5003/core | jq '.' | less
-#
+# Prueba
 
 @app.route("/core", methods=['POST'])
 def query_core():
