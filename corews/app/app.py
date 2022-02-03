@@ -216,6 +216,3 @@ def query_core_scroll():
         query,
         ptid)
     return jsonify(result=result)
-# Eliminar volumenes en docker
-# sudo docker volume rm mysqlws_my-db
-# sudo docker volume ls
