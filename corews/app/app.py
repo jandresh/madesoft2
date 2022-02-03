@@ -96,34 +96,34 @@ def scroll2(search_url, query, ptid):
                                     # ' '.join(map(str,re.findall('[a-zA-Z]\w+[.,;:]*', item['title'].capitalize()))),
                                     # ' '.join(map(str,re.findall('[a-zA-Z]\w+[.,;:]*', item['abstract'].capitalize()))),
                                     # ' '.join(map(str,re.findall('[a-zA-Z]\w+[.,;:]*', item['fullText'].capitalize())))
-                                    ])                                
+                                    ])
                                 # insert=post_json_request(
-                                #     'http://mysqlws:5000/search2mysql', 
+                                #     'http://mysqlws:5000/search2mysql',
                                 #     {
-                                #     "patternid" : ptid, 
-                                #     "docid": item['id'], 
-                                #     "title" : item['title'], 
-                                #     "abstract" : item['abstract'], 
+                                #     "patternid" : ptid,
+                                #     "docid": item['id'],
+                                #     "title" : item['title'],
+                                #     "abstract" : item['abstract'],
                                 #     "fulltext" : item['fullText']
                                 #     })
                                 # # if insert['result']=='0':
-                                spanish_count+=1    
+                                spanish_count+=1
                         except:
                             print('No inserted docid: ', item['id'])
                             writer.writerow([
                                 datetime.now(),
                                 'No inserted docid: {}'.format(item['id'])
                                 ])
-                        print('PatternId:', ptid, 'SpanishCout:', spanish_count) 
+                        print('PatternId:', ptid, 'SpanishCout:', spanish_count)
                     count += result_size
-                    if (spanish_count > 12000): 
-                        break   
+                    if (spanish_count > 12000):
+                        break
                     print(f"{count}/{totalhits} {elapsed}s")
                     writer.writerow([
                         datetime.now(),
                         'PatternId: {}, spanishCount: {}, {}/{}'.format(ptid, spanish_count, count, totalhits)
                         ])
-                    file2.close()        
+                    file2.close()
             file.close()
         # if result:
         #     if result_size == 0:
@@ -151,28 +151,27 @@ def scroll2(search_url, query, ptid):
         #                         ])
         #                     file.close()
         #                 # insert=post_json_request(
-        #                 #     'http://mysqlws:5000/search2mysql', 
+        #                 #     'http://mysqlws:5000/search2mysql',
         #                 #     {
-        #                 #     "patternid" : ptid, 
-        #                 #     "docid": item['id'], 
-        #                 #     "title" : item['title'], 
-        #                 #     "abstract" : item['abstract'], 
+        #                 #     "patternid" : ptid,
+        #                 #     "docid": item['id'],
+        #                 #     "title" : item['title'],
+        #                 #     "abstract" : item['abstract'],
         #                 #     "fulltext" : item['fullText']
         #                 #     })
         #                 # # if insert['result']=='0':
-        #                 spanish_count+=1    
+        #                 spanish_count+=1
         #         except:
         #             print('No inserted docid: ', item['id'])
-        #         print('PatternId:', ptid, 'SpanishCout:', spanish_count) 
-        #     count += result_size   
+        #         print('PatternId:', ptid, 'SpanishCout:', spanish_count)
+        #     count += result_size
         #     print(f"{count}/{totalhits} {elapsed}s")
         #     with open('program_out.csv', mode='a') as file:
         #         writer = csv.writer(file, delimiter=',', quotechar="'", quoting=csv.QUOTE_ALL)
         #         writer.writerow([
         #             'PatternId: {}, spanishCount: {}, {}/{}'.format(ptid, spanish_count, count, totalhits)
         #             ])
-        #         file.close()                    
-        
+        #         file.close()
     return spanish_count
 
 #
@@ -213,7 +212,7 @@ def query_core_scroll():
     query = request.json['query']
     ptid = request.json['idpattern']
     result = scroll2(
-        f"https://api.core.ac.uk/v3/search/works", 
+        f"https://api.core.ac.uk/v3/search/works",
         query,
         ptid)
     return jsonify(result=result)
