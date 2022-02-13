@@ -2,8 +2,8 @@ agentName = "ubuntu-2104"
 agentLabel = "${-> println 'Right Now the Agent Name is ' + agentName; return agentName}"
 pipeline {
     environment {
-        PROJECT = "compdistuv"
-        APP_NAME = "compdistuv-app"
+        PROJECT = "madesoft2"
+        APP_NAME = "madesoft2-app"
         FE_SVC_NAME = "metapub"
         CLUSTER = "jenkins-cd"
         CLUSTER_ZONE = "us-east1-d"
@@ -13,7 +13,7 @@ pipeline {
     agent none
     stages {
         stage('Build&Test app') {
-            agent { 
+            agent {
                 node { label agentLabel as String }
             }
             steps {
@@ -23,7 +23,7 @@ pipeline {
             }
         }
         stage('Container Publish') {
-            agent { 
+            agent {
                 node { label agentLabel as String }
             }
             steps {
@@ -35,11 +35,11 @@ pipeline {
                         script: 'echo -n $GIT_COMMIT',
                         returnStdout: true
                     )
-                }             
+                }
             }
         }
         stage('Test App form dockerHub') {
-            agent { 
+            agent {
                 node { label agentLabel as String }
             }
             steps {
@@ -65,7 +65,7 @@ pipeline {
                 container('kubectl') {
                     // Create namespace if it doesn't exist
                     sh("kubectl get ns ${env.BRANCH_NAME} || kubectl create ns ${env.BRANCH_NAME}")
-                    // sh("gcloud compute disks create --size=20GB --zone=us-east1-d my-db-${env.BRANCH_NAME} || gcloud compute disks describe my-db-${env.BRANCH_NAME} --zone us-east1-d")                    
+                    // sh("gcloud compute disks create --size=20GB --zone=us-east1-d my-db-${env.BRANCH_NAME} || gcloud compute disks describe my-db-${env.BRANCH_NAME} --zone us-east1-d")
                     sh("sed -i.bak 's#jandresh/metapubws:latest#jandresh/metapubws:${IMAGE_TAG}#' ./adcws/metapubws/kube/dev/*.yaml")
                     sh("sed -i.bak 's#jandresh/mysqlws:latest#jandresh/mysqlws:${IMAGE_TAG}#' ./adcws/mysqlws/kube/dev/*.yaml")
                     sh("sed -i.bak 's#my-db-production#my-db-${env.BRANCH_NAME}#' ./adcws/mysqlws/kube/services/*.yaml")
@@ -79,7 +79,7 @@ pipeline {
                     sh("echo http://`kubectl --namespace=${env.BRANCH_NAME} get service/${FE_SVC_NAME} -o jsonpath='{.status.loadBalancer.ingress[0].ip}'` > ${FE_SVC_NAME}:3000")
                 }
             }
-        }  
+        }
         stage('Deploy Canary') {
             // Canary branch
             when { branch 'canary' }
@@ -96,7 +96,7 @@ pipeline {
                     sh("kubectl get ns production || kubectl create ns production")
                     sh("sed -i.bak 's#jandresh/metapubws:latest#jandresh/metapubws:${IMAGE_TAG}#' ./adcws/metapubws/kube/canary/*.yaml")
                     sh("sed -i.bak 's#jandresh/mysqlws:latest#jandresh/mysqlws:${IMAGE_TAG}#' ./adcws/mysqlws/kube/canary/*.yaml")
-                    // sh("gcloud compute disks create --size=20GB --zone=us-east1-d my-db-production || gcloud compute disks describe my-db-production --zone us-east1-d") 
+                    // sh("gcloud compute disks create --size=20GB --zone=us-east1-d my-db-production || gcloud compute disks describe my-db-production --zone us-east1-d")
                     step([$class: 'KubernetesEngineBuilder', namespace:'production', projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'adcws/metapubws/kube/services', credentialsId: env.JENKINS_CRED, verifyDeployments: false])
                     step([$class: 'KubernetesEngineBuilder', namespace:'production', projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'adcws/metapubws/kube/canary', credentialsId: env.JENKINS_CRED, verifyDeployments: true])
                     step([$class: 'KubernetesEngineBuilder', namespace:'production', projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'adcws/mysqlws/kube/services', credentialsId: env.JENKINS_CRED, verifyDeployments: false])
@@ -124,7 +124,7 @@ pipeline {
                     sh("kubectl get ns production || kubectl create ns production")
                     sh("sed -i.bak 's#jandresh/metapubws:latest#jandresh/metapubws:${IMAGE_TAG}#' ./adcws/metapubws/kube/production/*.yaml")
                     sh("sed -i.bak 's#jandresh/mysqlws:latest#jandresh/mysqlws:${IMAGE_TAG}#' ./adcws/mysqlws/kube/production/*.yaml")
-                    // sh("gcloud compute disks create --size=20GB --zone=us-east1-d my-db-production || gcloud compute disks describe my-db-production --zone us-east1-d") 
+                    // sh("gcloud compute disks create --size=20GB --zone=us-east1-d my-db-production || gcloud compute disks describe my-db-production --zone us-east1-d")
                     step([$class: 'KubernetesEngineBuilder', namespace:'production', projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'adcws/metapubws/kube/services', credentialsId: env.JENKINS_CRED, verifyDeployments: false])
                     step([$class: 'KubernetesEngineBuilder', namespace:'production', projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'adcws/metapubws/kube/production', credentialsId: env.JENKINS_CRED, verifyDeployments: true])
                     step([$class: 'KubernetesEngineBuilder', namespace:'production', projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'adcws/mysqlws/kube/services', credentialsId: env.JENKINS_CRED, verifyDeployments: false])
@@ -135,7 +135,7 @@ pipeline {
                     sh("echo http://`kubectl --namespace=production get service/${FE_SVC_NAME} -o jsonpath='{.status.loadBalancer.ingress[0].ip}'` > ${FE_SVC_NAME}:3000")
                 }
             }
-        }    
+        }
     }
     post {
         always {

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# Este scriptmuestra como consumir un *endpoint*  que
+# Este script muestra como consumir un *endpoint*  que
 # accede a un web service que consulta por artículos de
 # la base de datos pubmed.
 #
@@ -26,10 +26,9 @@ app = Flask(__name__)
 # Este metodo retorna informacion de microservicios disponibles
 #
 
-
 @app.route('/')
-def helloworld():
-    return 'metapubws endpoints: "/title", /abstract, /pmids, /metadata, /pmid2pdf'
+def root():
+    return 'metapubws endpoints: /title, /abstract, /pmids'
 
 #
 # *****title_from_pmid()******
@@ -74,7 +73,7 @@ def pmid_from_query():
     if not request.json:
         abort(400)
     query = request.json['query']
-    pmids = fetch.pmids_for_query(query, retmax=1000)
+    pmids = fetch.pmids_for_query(query, retmax=10000)
     return jsonify(pmids=pmids)
 
 #
@@ -98,11 +97,11 @@ def metadata_from_pmid():
         pmid=article.pmid,
         title=article.title,
         abstract=article.abstract,
-        # citation=article.citation,
-        # pubmed_type=article.pubmed_type,
-        # url=article.url,
-        # authors=article.authors,
-        # # #author_list=article.author_list, #Puede no funionar porque devuelve una lista
+        citation=article.citation,
+        pubmed_type=article.pubmed_type,
+        url=article.url,
+        authors=article.authors,
+        # author_list=article.author_list, #Puede no funionar porque devuelve una lista
         # authors_str=article.authors_str,
         # author1_last_fm=article.author1_last_fm,
         # author1_lastfm=article.author1_lastfm,
@@ -112,7 +111,7 @@ def metadata_from_pmid():
         # volume=article.volume,
         # issue=article.issue,
         # volume_issue=article.volume_issue,
-        # doi=article.doi,
+        doi=article.doi,
         # pii=article.pii,
         # pmc=article.pmc,
         # issn=article.issn,
@@ -135,7 +134,7 @@ def metadata_from_pmid():
         # book_contribution_date=article.book_contribution_date,
         # book_date_revised=article.book_date_revised,
         # journal=article.journal,
-        # year=article.year,
+        year=article.year
         # history=article.history,
     )
     # buscar varios conceptos con el AND CANCER MAMA TRATADOS CON CISPLASTINO
