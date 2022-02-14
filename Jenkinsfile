@@ -1,10 +1,9 @@
-agentName = "ubuntu-2104"
+agentName = "ubuntu-2110"
 agentLabel = "${-> println 'Right Now the Agent Name is ' + agentName; return agentName}"
 pipeline {
     environment {
         PROJECT = "madesoft2"
         APP_NAME = "madesoft2-app"
-        FE_SVC_NAME = "metapub"
         CLUSTER = "jenkins-cd"
         CLUSTER_ZONE = "us-east1-d"
         JENKINS_CRED = "${PROJECT}"
@@ -18,8 +17,8 @@ pipeline {
             }
             steps {
                 echo "Deployment test environment from docker-compose.yml"
-                sh 'chmod 777 adcws/test-environment1.sh'
-                sh 'sh adcws/test-environment1.sh'
+                sh 'chmod 777 test-environment1.sh'
+                sh 'sh test-environment1.sh'
             }
         }
         stage('Container Publish') {
@@ -28,8 +27,8 @@ pipeline {
             }
             steps {
                 echo "Container push to DockerHub"
-                sh 'chmod 777 adcws/container-publish.sh'
-                sh 'sh adcws/container-publish.sh'
+                sh 'chmod 777 container-publish.sh'
+                sh 'sh container-publish.sh'
                 script {
                     IMAGE_TAG=sh (
                         script: 'echo -n $GIT_COMMIT',
@@ -44,8 +43,8 @@ pipeline {
             }
             steps {
                 echo "Deployment test environment from docker hub"
-                sh 'chmod 777 adcws/test-environment2.sh'
-                sh 'sh adcws/test-environment2.sh'
+                sh 'chmod 777 test-environment2.sh'
+                sh 'sh test-environment2.sh'
             }
         }
         stage('Deploy Developer') {
@@ -56,27 +55,40 @@ pipeline {
             }
             agent {
                 kubernetes {
-                    label 'compdistuv-app'
+                    label 'madesoft2-app'
                     defaultContainer 'jnlp'
-                    yamlFile 'adcws/pod-template.yaml'
+                    yamlFile 'pod-template.yaml'
                 }
             }
             steps {
                 container('kubectl') {
-                    // Create namespace if it doesn't exist
                     sh("kubectl get ns ${env.BRANCH_NAME} || kubectl create ns ${env.BRANCH_NAME}")
-                    // sh("gcloud compute disks create --size=20GB --zone=us-east1-d my-db-${env.BRANCH_NAME} || gcloud compute disks describe my-db-${env.BRANCH_NAME} --zone us-east1-d")
-                    sh("sed -i.bak 's#jandresh/metapubws:latest#jandresh/metapubws:${IMAGE_TAG}#' ./adcws/metapubws/kube/dev/*.yaml")
-                    sh("sed -i.bak 's#jandresh/mysqlws:latest#jandresh/mysqlws:${IMAGE_TAG}#' ./adcws/mysqlws/kube/dev/*.yaml")
-                    sh("sed -i.bak 's#my-db-production#my-db-${env.BRANCH_NAME}#' ./adcws/mysqlws/kube/services/*.yaml")
-                    step([$class: 'KubernetesEngineBuilder', namespace: "${env.BRANCH_NAME}", projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'adcws/metapubws/kube/services', credentialsId: env.JENKINS_CRED, verifyDeployments: false])
-                    step([$class: 'KubernetesEngineBuilder', namespace: "${env.BRANCH_NAME}", projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'adcws/metapubws/kube/dev', credentialsId: env.JENKINS_CRED, verifyDeployments: true])
-                    step([$class: 'KubernetesEngineBuilder', namespace: "${env.BRANCH_NAME}", projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'adcws/mysqlws/kube/services', credentialsId: env.JENKINS_CRED, verifyDeployments: false])
-                    step([$class: 'KubernetesEngineBuilder', namespace: "${env.BRANCH_NAME}", projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'adcws/mysqlws/kube/dev', credentialsId: env.JENKINS_CRED, verifyDeployments: true])
-                    sh("kubectl --namespace=${env.BRANCH_NAME} scale deployment metapubws --replicas=4")
-                    sh("kubectl --namespace=${env.BRANCH_NAME} scale deployment app --replicas=4")
-                    sh("kubectl --namespace=${env.BRANCH_NAME} scale deployment db --replicas=1")
-                    sh("echo http://`kubectl --namespace=${env.BRANCH_NAME} get service/${FE_SVC_NAME} -o jsonpath='{.status.loadBalancer.ingress[0].ip}'` > ${FE_SVC_NAME}:3000")
+                    sh("sed -i.bak 's#jandresh/metapubws:latest#jandresh/metapubws:${IMAGE_TAG}#' ./metapubws/kube/dev/*.yaml")
+                    sh("sed -i.bak 's#jandresh/corews:latest#jandresh/corews:${IMAGE_TAG}#' ./corews/kube/dev/*.yaml")
+                    sh("sed -i.bak 's#jandresh/preprocessingws:latest#jandresh/preprocessingws:${IMAGE_TAG}#' ./preprocessingws/kube/dev/*.yaml")
+                    sh("sed -i.bak 's#jandresh/dbws:latest#jandresh/dbws:${IMAGE_TAG}#' ./dbws/kube/dev/*.yaml")
+                    sh("sed -i.bak 's#jandresh/orchestratorws:latest#jandresh/orchestratorws:${IMAGE_TAG}#' ./orchestratorws/kube/dev/*.yaml")
+                    step([$class: 'KubernetesEngineBuilder', namespace: "${env.BRANCH_NAME}", projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'metapubws/kube/services', credentialsId: env.JENKINS_CRED, verifyDeployments: false])
+                    step([$class: 'KubernetesEngineBuilder', namespace: "${env.BRANCH_NAME}", projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'metapubws/kube/dev', credentialsId: env.JENKINS_CRED, verifyDeployments: true])
+                    step([$class: 'KubernetesEngineBuilder', namespace: "${env.BRANCH_NAME}", projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'corews/kube/services', credentialsId: env.JENKINS_CRED, verifyDeployments: false])
+                    step([$class: 'KubernetesEngineBuilder', namespace: "${env.BRANCH_NAME}", projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'corews/kube/dev', credentialsId: env.JENKINS_CRED, verifyDeployments: true])
+                    step([$class: 'KubernetesEngineBuilder', namespace: "${env.BRANCH_NAME}", projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'preprocessingws/kube/services', credentialsId: env.JENKINS_CRED, verifyDeployments: false])
+                    step([$class: 'KubernetesEngineBuilder', namespace: "${env.BRANCH_NAME}", projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'preprocessingws/kube/dev', credentialsId: env.JENKINS_CRED, verifyDeployments: true])
+                    step([$class: 'KubernetesEngineBuilder', namespace: "${env.BRANCH_NAME}", projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'dbws/kube/services', credentialsId: env.JENKINS_CRED, verifyDeployments: false])
+                    step([$class: 'KubernetesEngineBuilder', namespace: "${env.BRANCH_NAME}", projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'dbws/kube/dev', credentialsId: env.JENKINS_CRED, verifyDeployments: true])
+                    step([$class: 'KubernetesEngineBuilder', namespace: "${env.BRANCH_NAME}", projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'orchestratorws/kube/services', credentialsId: env.JENKINS_CRED, verifyDeployments: false])
+                    step([$class: 'KubernetesEngineBuilder', namespace: "${env.BRANCH_NAME}", projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'orchestratorws/kube/dev', credentialsId: env.JENKINS_CRED, verifyDeployments: true])
+                    sh("kubectl --namespace=${env.BRANCH_NAME} scale deployment metapubws --replicas=1")
+                    sh("kubectl --namespace=${env.BRANCH_NAME} scale deployment corews --replicas=1")
+                    sh("kubectl --namespace=${env.BRANCH_NAME} scale deployment preprocessingws --replicas=1")
+                    sh("kubectl --namespace=${env.BRANCH_NAME} scale deployment dbws --replicas=1")
+                    sh("kubectl --namespace=${env.BRANCH_NAME} scale deployment mysql --replicas=1")
+                    sh("kubectl --namespace=${env.BRANCH_NAME} scale deployment mongo --replicas=1")
+                    sh("kubectl --namespace=${env.BRANCH_NAME} scale deployment orchestratorws --replicas=1")
+                    sh("echo http://`kubectl --namespace=${env.BRANCH_NAME} get service/metapubws -o jsonpath='{.status.loadBalancer.ingress[0].ip}'` > metapubws")
+                    sh("echo http://`kubectl --namespace=${env.BRANCH_NAME} get service/corews -o jsonpath='{.status.loadBalancer.ingress[0].ip}'` > corews")
+                    sh("echo http://`kubectl --namespace=${env.BRANCH_NAME} get service/preprocessingws -o jsonpath='{.status.loadBalancer.ingress[0].ip}'` > preprocessingws")
+                    sh("echo http://`kubectl --namespace=${env.BRANCH_NAME} get service/dbws -o jsonpath='{.status.loadBalancer.ingress[0].ip}'` > dbws")
                 }
             }
         }
@@ -85,26 +97,40 @@ pipeline {
             when { branch 'canary' }
             agent {
                 kubernetes {
-                    label 'compdistuv-app'
+                    label 'madesoft2-app'
                     defaultContainer 'jnlp'
-                    yamlFile 'adcws/pod-template.yaml'
+                    yamlFile 'pod-template.yaml'
                 }
             }
             steps {
                 container('kubectl') {
-                    // Create namespace if it doesn't exist
                     sh("kubectl get ns production || kubectl create ns production")
-                    sh("sed -i.bak 's#jandresh/metapubws:latest#jandresh/metapubws:${IMAGE_TAG}#' ./adcws/metapubws/kube/canary/*.yaml")
-                    sh("sed -i.bak 's#jandresh/mysqlws:latest#jandresh/mysqlws:${IMAGE_TAG}#' ./adcws/mysqlws/kube/canary/*.yaml")
-                    // sh("gcloud compute disks create --size=20GB --zone=us-east1-d my-db-production || gcloud compute disks describe my-db-production --zone us-east1-d")
-                    step([$class: 'KubernetesEngineBuilder', namespace:'production', projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'adcws/metapubws/kube/services', credentialsId: env.JENKINS_CRED, verifyDeployments: false])
-                    step([$class: 'KubernetesEngineBuilder', namespace:'production', projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'adcws/metapubws/kube/canary', credentialsId: env.JENKINS_CRED, verifyDeployments: true])
-                    step([$class: 'KubernetesEngineBuilder', namespace:'production', projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'adcws/mysqlws/kube/services', credentialsId: env.JENKINS_CRED, verifyDeployments: false])
-                    step([$class: 'KubernetesEngineBuilder', namespace:'production', projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'adcws/mysqlws/kube/canary', credentialsId: env.JENKINS_CRED, verifyDeployments: true])
-                    // sh("kubectl --namespace=production scale deployment blog --replicas=1")
-                    // sh("kubectl --namespace=production scale deployment app --replicas=1")
-                    // sh("kubectl --namespace=production scale deployment db --replicas=1")
-                    sh("echo http://`kubectl --namespace=production get service/${FE_SVC_NAME} -o jsonpath='{.status.loadBalancer.ingress[0].ip}'` > ${FE_SVC_NAME}:3000")
+                    sh("sed -i.bak 's#jandresh/metapubws:latest#jandresh/metapubws:${IMAGE_TAG}#' ./metapubws/kube/canary/*.yaml")
+                    sh("sed -i.bak 's#jandresh/corews:latest#jandresh/corews:${IMAGE_TAG}#' ./corews/kube/canary/*.yaml")
+                    sh("sed -i.bak 's#jandresh/preprocessingws:latest#jandresh/preprocessingws:${IMAGE_TAG}#' ./preprocessingws/kube/canary/*.yaml")
+                    sh("sed -i.bak 's#jandresh/dbws:latest#jandresh/dbws:${IMAGE_TAG}#' ./dbws/kube/canary/*.yaml")
+                    sh("sed -i.bak 's#jandresh/orchestratorws:latest#jandresh/orchestratorws:${IMAGE_TAG}#' ./orchestratorws/kube/canary/*.yaml")
+                    step([$class: 'KubernetesEngineBuilder', namespace: "production", projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'metapubws/kube/services', credentialsId: env.JENKINS_CRED, verifyDeployments: false])
+                    step([$class: 'KubernetesEngineBuilder', namespace: "production", projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'metapubws/kube/canary', credentialsId: env.JENKINS_CRED, verifyDeployments: true])
+                    step([$class: 'KubernetesEngineBuilder', namespace: "production", projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'corews/kube/services', credentialsId: env.JENKINS_CRED, verifyDeployments: false])
+                    step([$class: 'KubernetesEngineBuilder', namespace: "production", projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'corews/kube/canary', credentialsId: env.JENKINS_CRED, verifyDeployments: true])
+                    step([$class: 'KubernetesEngineBuilder', namespace: "production", projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'preprocessingws/kube/services', credentialsId: env.JENKINS_CRED, verifyDeployments: false])
+                    step([$class: 'KubernetesEngineBuilder', namespace: "production", projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'preprocessingws/kube/canary', credentialsId: env.JENKINS_CRED, verifyDeployments: true])
+                    step([$class: 'KubernetesEngineBuilder', namespace: "production", projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'dbws/kube/services', credentialsId: env.JENKINS_CRED, verifyDeployments: false])
+                    step([$class: 'KubernetesEngineBuilder', namespace: "production", projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'dbws/kube/canary', credentialsId: env.JENKINS_CRED, verifyDeployments: true])
+                    step([$class: 'KubernetesEngineBuilder', namespace: "production", projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'orchestratorws/kube/services', credentialsId: env.JENKINS_CRED, verifyDeployments: false])
+                    step([$class: 'KubernetesEngineBuilder', namespace: "production", projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'orchestratorws/kube/canary', credentialsId: env.JENKINS_CRED, verifyDeployments: true])
+                    sh("kubectl --namespace=production scale deployment metapubws --replicas=1")
+                    sh("kubectl --namespace=production scale deployment corews --replicas=1")
+                    sh("kubectl --namespace=production scale deployment preprocessingws --replicas=1")
+                    sh("kubectl --namespace=production scale deployment dbws --replicas=1")
+                    sh("kubectl --namespace=production scale deployment mysql --replicas=1")
+                    sh("kubectl --namespace=production scale deployment mongo --replicas=1")
+                    sh("kubectl --namespace=production scale deployment orchestratorws --replicas=1")
+                    sh("echo http://`kubectl --namespace=production get service/metapubws -o jsonpath='{.status.loadBalancer.ingress[0].ip}'` > metapubws")
+                    sh("echo http://`kubectl --namespace=production get service/corews -o jsonpath='{.status.loadBalancer.ingress[0].ip}'` > corews")
+                    sh("echo http://`kubectl --namespace=production get service/preprocessingws -o jsonpath='{.status.loadBalancer.ingress[0].ip}'` > preprocessingws")
+                    sh("echo http://`kubectl --namespace=production get service/dbws -o jsonpath='{.status.loadBalancer.ingress[0].ip}'` > dbws")
                 }
             }
         }
@@ -113,26 +139,40 @@ pipeline {
             when { branch 'master' }
             agent {
                 kubernetes {
-                    label 'compdistuv-app'
+                    label 'madesoft2-app'
                     defaultContainer 'jnlp'
-                    yamlFile 'adcws/pod-template.yaml'
+                    yamlFile 'pod-template.yaml'
                 }
             }
             steps{
                 container('kubectl') {
-                    // Create namespace if it doesn't exist
                     sh("kubectl get ns production || kubectl create ns production")
-                    sh("sed -i.bak 's#jandresh/metapubws:latest#jandresh/metapubws:${IMAGE_TAG}#' ./adcws/metapubws/kube/production/*.yaml")
-                    sh("sed -i.bak 's#jandresh/mysqlws:latest#jandresh/mysqlws:${IMAGE_TAG}#' ./adcws/mysqlws/kube/production/*.yaml")
-                    // sh("gcloud compute disks create --size=20GB --zone=us-east1-d my-db-production || gcloud compute disks describe my-db-production --zone us-east1-d")
-                    step([$class: 'KubernetesEngineBuilder', namespace:'production', projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'adcws/metapubws/kube/services', credentialsId: env.JENKINS_CRED, verifyDeployments: false])
-                    step([$class: 'KubernetesEngineBuilder', namespace:'production', projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'adcws/metapubws/kube/production', credentialsId: env.JENKINS_CRED, verifyDeployments: true])
-                    step([$class: 'KubernetesEngineBuilder', namespace:'production', projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'adcws/mysqlws/kube/services', credentialsId: env.JENKINS_CRED, verifyDeployments: false])
-                    step([$class: 'KubernetesEngineBuilder', namespace:'production', projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'adcws/mysqlws/kube/production', credentialsId: env.JENKINS_CRED, verifyDeployments: true])
-                    sh("kubectl --namespace=production scale deployment metapubws --replicas=4")
-                    sh("kubectl --namespace=production scale deployment app --replicas=4")
-                    sh("kubectl --namespace=production scale deployment db --replicas=1")
-                    sh("echo http://`kubectl --namespace=production get service/${FE_SVC_NAME} -o jsonpath='{.status.loadBalancer.ingress[0].ip}'` > ${FE_SVC_NAME}:3000")
+                    sh("sed -i.bak 's#jandresh/metapubws:latest#jandresh/metapubws:${IMAGE_TAG}#' ./metapubws/kube/production/*.yaml")
+                    sh("sed -i.bak 's#jandresh/corews:latest#jandresh/corews:${IMAGE_TAG}#' ./corews/kube/production/*.yaml")
+                    sh("sed -i.bak 's#jandresh/preprocessingws:latest#jandresh/preprocessingws:${IMAGE_TAG}#' ./preprocessingws/kube/production/*.yaml")
+                    sh("sed -i.bak 's#jandresh/dbws:latest#jandresh/dbws:${IMAGE_TAG}#' ./dbws/kube/production/*.yaml")
+                    sh("sed -i.bak 's#jandresh/orchestratorws:latest#jandresh/orchestratorws:${IMAGE_TAG}#' ./orchestratorws/kube/production/*.yaml")
+                    step([$class: 'KubernetesEngineBuilder', namespace: "production", projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'metapubws/kube/services', credentialsId: env.JENKINS_CRED, verifyDeployments: false])
+                    step([$class: 'KubernetesEngineBuilder', namespace: "production", projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'metapubws/kube/production', credentialsId: env.JENKINS_CRED, verifyDeployments: true])
+                    step([$class: 'KubernetesEngineBuilder', namespace: "production", projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'corews/kube/services', credentialsId: env.JENKINS_CRED, verifyDeployments: false])
+                    step([$class: 'KubernetesEngineBuilder', namespace: "production", projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'corews/kube/production', credentialsId: env.JENKINS_CRED, verifyDeployments: true])
+                    step([$class: 'KubernetesEngineBuilder', namespace: "production", projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'preprocessingws/kube/services', credentialsId: env.JENKINS_CRED, verifyDeployments: false])
+                    step([$class: 'KubernetesEngineBuilder', namespace: "production", projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'preprocessingws/kube/production', credentialsId: env.JENKINS_CRED, verifyDeployments: true])
+                    step([$class: 'KubernetesEngineBuilder', namespace: "production", projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'dbws/kube/services', credentialsId: env.JENKINS_CRED, verifyDeployments: false])
+                    step([$class: 'KubernetesEngineBuilder', namespace: "production", projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'dbws/kube/production', credentialsId: env.JENKINS_CRED, verifyDeployments: true])
+                    step([$class: 'KubernetesEngineBuilder', namespace: "production", projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'orchestratorws/kube/services', credentialsId: env.JENKINS_CRED, verifyDeployments: false])
+                    step([$class: 'KubernetesEngineBuilder', namespace: "production", projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'orchestratorws/kube/production', credentialsId: env.JENKINS_CRED, verifyDeployments: true])
+                    sh("kubectl --namespace=production scale deployment metapubws --replicas=3")
+                    sh("kubectl --namespace=production scale deployment corews --replicas=3")
+                    sh("kubectl --namespace=production scale deployment preprocessingws --replicas=3")
+                    sh("kubectl --namespace=production scale deployment dbws --replicas=3")
+                    sh("kubectl --namespace=production scale deployment mysql --replicas=1")
+                    sh("kubectl --namespace=production scale deployment mongo --replicas=1")
+                    sh("kubectl --namespace=production scale deployment orchestratorws --replicas=3")
+                    sh("echo http://`kubectl --namespace=production get service/metapubws -o jsonpath='{.status.loadBalancer.ingress[0].ip}'` > metapubws")
+                    sh("echo http://`kubectl --namespace=production get service/corews -o jsonpath='{.status.loadBalancer.ingress[0].ip}'` > corews")
+                    sh("echo http://`kubectl --namespace=production get service/preprocessingws -o jsonpath='{.status.loadBalancer.ingress[0].ip}'` > preprocessingws")
+                    sh("echo http://`kubectl --namespace=production get service/dbws -o jsonpath='{.status.loadBalancer.ingress[0].ip}'` > dbws")
                 }
             }
         }
