@@ -85,10 +85,8 @@ pipeline {
                     sh("kubectl --namespace=${env.BRANCH_NAME} scale deployment mysql --replicas=1")
                     sh("kubectl --namespace=${env.BRANCH_NAME} scale deployment mongo --replicas=1")
                     sh("kubectl --namespace=${env.BRANCH_NAME} scale deployment orchestratorws --replicas=1")
-                    sh("echo http://`kubectl --namespace=${env.BRANCH_NAME} get service/metapubws -o jsonpath='{.status.loadBalancer.ingress[0].ip}'` > metapubws")
-                    sh("echo http://`kubectl --namespace=${env.BRANCH_NAME} get service/corews -o jsonpath='{.status.loadBalancer.ingress[0].ip}'` > corews")
-                    sh("echo http://`kubectl --namespace=${env.BRANCH_NAME} get service/preprocessingws -o jsonpath='{.status.loadBalancer.ingress[0].ip}'` > preprocessingws")
-                    sh("echo http://`kubectl --namespace=${env.BRANCH_NAME} get service/dbws -o jsonpath='{.status.loadBalancer.ingress[0].ip}'` > dbws")
+                    sh("echo http://`kubectl --namespace=${env.BRANCH_NAME} get service/orchestratorws -o jsonpath='{.status.loadBalancer.ingress[0].ip}'`:5004 > url")
+                    sh("echo http://`kubectl --namespace=${env.BRANCH_NAME} get service/dbws -o jsonpath='{.status.loadBalancer.ingress[0].ip}'`:5001 > url")
                 }
             }
         }
@@ -127,10 +125,8 @@ pipeline {
                     sh("kubectl --namespace=production scale deployment mysql --replicas=1")
                     sh("kubectl --namespace=production scale deployment mongo --replicas=1")
                     sh("kubectl --namespace=production scale deployment orchestratorws --replicas=1")
-                    sh("echo http://`kubectl --namespace=production get service/metapubws -o jsonpath='{.status.loadBalancer.ingress[0].ip}'` > metapubws")
-                    sh("echo http://`kubectl --namespace=production get service/corews -o jsonpath='{.status.loadBalancer.ingress[0].ip}'` > corews")
-                    sh("echo http://`kubectl --namespace=production get service/preprocessingws -o jsonpath='{.status.loadBalancer.ingress[0].ip}'` > preprocessingws")
-                    sh("echo http://`kubectl --namespace=production get service/dbws -o jsonpath='{.status.loadBalancer.ingress[0].ip}'` > dbws")
+                    sh("echo http://`kubectl --namespace=production get service/orchestratorws -o jsonpath='{.status.loadBalancer.ingress[0].ip}'`:5004 > url")
+                    sh("echo http://`kubectl --namespace=production get service/dbws -o jsonpath='{.status.loadBalancer.ingress[0].ip}'`:5001 > url")
                 }
             }
         }
@@ -169,10 +165,8 @@ pipeline {
                     sh("kubectl --namespace=production scale deployment mysql --replicas=1")
                     sh("kubectl --namespace=production scale deployment mongo --replicas=1")
                     sh("kubectl --namespace=production scale deployment orchestratorws --replicas=3")
-                    sh("echo http://`kubectl --namespace=production get service/metapubws -o jsonpath='{.status.loadBalancer.ingress[0].ip}'` > metapubws")
-                    sh("echo http://`kubectl --namespace=production get service/corews -o jsonpath='{.status.loadBalancer.ingress[0].ip}'` > corews")
-                    sh("echo http://`kubectl --namespace=production get service/preprocessingws -o jsonpath='{.status.loadBalancer.ingress[0].ip}'` > preprocessingws")
-                    sh("echo http://`kubectl --namespace=production get service/dbws -o jsonpath='{.status.loadBalancer.ingress[0].ip}'` > dbws")
+                    sh("echo http://`kubectl --namespace=production get service/orchestratorws -o jsonpath='{.status.loadBalancer.ingress[0].ip}'`:5004 > url")
+                    sh("echo http://`kubectl --namespace=production get service/dbws -o jsonpath='{.status.loadBalancer.ingress[0].ip}'`:5001 > url")
                 }
             }
         }
