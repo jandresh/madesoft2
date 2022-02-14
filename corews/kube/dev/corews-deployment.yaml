@@ -2,23 +2,23 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    service: metapubws
-  name: metapubws
+    service: corews
+  name: corews
 spec:
   replicas: 1
   selector:
     matchLabels:
-      service: metapubws
+      service: corews
   strategy: {}
   template:
     metadata:
       labels:
         network/custompipeline: "true"
-        service: metapubws
+        service: corews
     spec:
       containers:
-        - image: jandresh/metapubws:latest
-          name: metapubws
+        - image: jandresh/corews:latest
+          name: corews
           ports:
             - containerPort: 5000
           resources: {}

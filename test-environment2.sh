@@ -1,23 +1,27 @@
 #! /bin/bash
-sudo rm -fr inv-adc
-git clone https://github.com/jandresh/inv-adc
-cd inv-adc/
+sudo rm -fr madesoft2
+git clone https://github.com/jandresh/madesoft2
+cd madesoft2
 for branch in `git branch -r | grep -v HEAD`;do echo -e `git show --format="%ci" $branch | head -n 1` \\t$branch; done | sort -r | head -n 1 | grep -o -P '(?<=origin/).*(?=)' > branch.txt
 export LAST_BRANCH=$(cat branch.txt)
 git checkout $LAST_BRANCH
-cd adcws/mysqlws
-sudo docker-compose down
+cd orchestratorws
+sudo docker-compose down --remove-orphans
+cd ../dbws
+sudo docker-compose down --remove-orphans
+cd ../preprocessingws
+sudo docker-compose down --remove-orphans
+cd ../corews
+sudo docker-compose down --remove-orphans
 cd ../metapubws
-sudo docker-compose down
+sudo docker-compose down --remove-orphans
 cd kompose
 sudo docker-compose up -d
-cd ../../mysqlws
-sudo docker-compose down
-cd kompose
+cd ../../corews/kompose
 sudo docker-compose up -d
-
-# sudo rm -fr ontop-tutorial
-# git clone https://github.com/ontop/ontop-tutorial.git
-# cd ontop-tutorial/endpoint
-# sudo docker-compose build
-# sudo docker-compose up -d
+cd ../../preprocessingws/kompose
+sudo docker-compose up -d
+cd ../../dbws/kompose
+sudo docker-compose up -d
+cd ../../orchestratorws/kompose
+sudo docker-compose up -d
