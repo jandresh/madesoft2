@@ -111,7 +111,16 @@ def str2eq(pattern, sentences_str):
 
 @app.route('/')
 def root():
-    return 'dbws endpoints: /'
+    return '''dbws endpoints:
+    /
+    /init               GET
+    /pattern2mysql      POST
+
+    '''
+
+# *****init()******
+# Este metodo es invocado de esta forma:
+# curl http://localhost:5001/init
 
 @app.route('/init', methods=['GET'])
 def init():
@@ -270,6 +279,10 @@ def search_insert():
     connection.close()
     return jsonify(result=result)
 
+# *****txt_patterns_file_insert()******
+# Este metodo es invocado de esta forma:
+# curl http://<host>:5001/txt2patterns
+
 @app.route("/txt2patterns", methods=['GET'])
 def txt_patterns_file_insert():
     connection = mysql.connector.connect(**config)
@@ -308,6 +321,9 @@ def txt_patterns_file_insert():
     connection.close()
     return jsonify(result=result)
 
+# *****patterns()******
+# Este metodo es invocado de esta forma:
+# curl http://<host>:5001/patterns
 
 @app.route('/patterns', methods=['GET'])
 def patterns():
@@ -316,6 +332,9 @@ def patterns():
     connection.close()
     return jsonify(results)
 
+# *****searches()******
+# Este metodo es invocado de esta forma:
+# curl http://<host>:5001/searches
 
 @app.route('/searches', methods=['GET'])
 def searches():
