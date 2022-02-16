@@ -45,6 +45,7 @@ pipeline {
                 echo "Deployment test environment from docker hub"
                 sh 'chmod 777 test-environment2.sh'
                 sh 'sh test-environment2.sh'
+                sh 'sh functional.sh'
             }
         }
         stage('Deploy Developer') {
