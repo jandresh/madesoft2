@@ -1,18 +1,5 @@
 #!/usr/bin/env python
 #
-# Este script muestra como consumir un *endpoint*  que
-# accede a un web service que consulta por artículos de
-# la base de datos pubmed.
-#
-# Para ejecutar este script debe ejecutar los siguientes pasos:
-#  virtualenv venv
-#  . venv/bin/activate
-#  sudo apt-get install libxml2-dev libxslt-dev python-dev
-#  pip3 install Flask metapub
-#  export FLASK_APP=metapubws.py
-#  export NCBI_API_KEY=”CLAVE_PUBMED”
-#  flask run --host=0.0.0.0
-#
 # Author: Jaime Hurtado - jaime.hurtado@correounivalle.edu.co
 # Fecha: 2021-03-02
 #
@@ -137,9 +124,6 @@ def metadata_from_pmid():
         year=article.year
         # history=article.history,
     )
-    # buscar varios conceptos con el AND CANCER MAMA TRATADOS CON CISPLASTINO
-    # Recibir un filtro de fecha
-    # Validar info descargada
 
 #
 # *****pdf_from_pmid()******

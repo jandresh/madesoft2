@@ -89,24 +89,20 @@ def scroll2(search_url, query, ptid):
                             item['title']=''
                         try:
                             esp_detect_title = detect(item['title'].lower())=='es'
-                            # print(f"detect title = {str(detect(item['title'].lower()))}")
                         except:
                             esp_detect_title  = False
                         if item['abstract']==None:
                             item['abstract']=''
                         try:
                             esp_detect_abstract = detect(item['abstract'].lower())=='es'
-                            # print(f"detect abstract = {str(detect(item['abstract'].lower()))}")
                         except:
                             esp_detect_abstract  = False
                         if item['fullText']==None:
                             item['fullText']=''
                         try:
                             esp_detect_fullText = detect(item['fullText'].lower())=='es'
-                            # print(f"detect fullText = {str(detect(item['fullText'].lower()))}")
                         except:
                             esp_detect_fullText  = False
-                        # try:
                         if esp_detect_title or esp_detect_abstract or esp_detect_fullText:
                             writer2.writerow([
                                 ptid,
@@ -115,27 +111,8 @@ def scroll2(search_url, query, ptid):
                                 item['title'].replace("\'", ""),
                                 item['abstract'].replace("\'", ""),
                                 item['fullText'].replace("\'", "")
-                                # ' '.join(map(str,re.findall('[a-zA-Z]\w+[.,;:]*', item['title'].capitalize()))),
-                                # ' '.join(map(str,re.findall('[a-zA-Z]\w+[.,;:]*', item['abstract'].capitalize()))),
-                                # ' '.join(map(str,re.findall('[a-zA-Z]\w+[.,;:]*', item['fullText'].capitalize())))
-                                ])
-                            # insert=post_json_request(
-                            #     'http://mysqlws:5000/search2mysql',
-                            #     {
-                            #     "patternid" : ptid,
-                            #     "docid": item['id'],
-                            #     "title" : item['title'],
-                            #     "abstract" : item['abstract'],
-                            #     "fulltext" : item['fullText']
-                            #     })
-                            # # if insert['result']=='0':
+                            ])
                             spanish_count+=1
-                        # except:
-                        #     print('No inserted docid: ', item['id'])
-                        #     writer.writerow([
-                        #         datetime.now(),
-                        #         'No inserted docid: {}'.format(item['id'])
-                        #         ])
                         print('PatternId:', ptid, 'SpanishCount:', spanish_count)
                     count += result_size
                     print(f"{count}/{totalhits} {elapsed}s")
@@ -147,53 +124,6 @@ def scroll2(search_url, query, ptid):
                     if (spanish_count > 12000 or count == totalhits):
                         break
             file.close()
-        # if result:
-        #     if result_size == 0:
-        #         break
-        #     for item in result["results"]:
-        #         if item['title']==None:
-        #             item['title']=''
-        #         if item['abstract']==None:
-        #             item['abstract']=''
-        #         if item['fullText']==None:
-        #             item['fullText']=''
-        #         try:
-        #             detect_es=detect(item['title'].lower())=='es' or detect(item['abstract'].lower())=='es' or detect(item['fullText'].lower())=='es'
-        #             if detect_es:
-        #                 file_name = '{}.csv'.format(ptid)
-        #                 with open(file_name, mode='a') as file:
-        #                     writer = csv.writer(file, delimiter=',', quotechar="'", quoting=csv.QUOTE_ALL)
-        #                     writer.writerow([
-        #                         ptid,
-        #                         item['id'],
-        #                         item['downloadUrl'],
-        #                         ' '.join(map(str,re.findall('[a-zA-Z]\w+[.,;:]*', item['title'].capitalize()))),
-        #                         ' '.join(map(str,re.findall('[a-zA-Z]\w+[.,;:]*', item['abstract'].capitalize()))),
-        #                         ' '.join(map(str,re.findall('[a-zA-Z]\w+[.,;:]*', item['fullText'].capitalize())))
-        #                         ])
-        #                     file.close()
-        #                 # insert=post_json_request(
-        #                 #     'http://mysqlws:5000/search2mysql',
-        #                 #     {
-        #                 #     "patternid" : ptid,
-        #                 #     "docid": item['id'],
-        #                 #     "title" : item['title'],
-        #                 #     "abstract" : item['abstract'],
-        #                 #     "fulltext" : item['fullText']
-        #                 #     })
-        #                 # # if insert['result']=='0':
-        #                 spanish_count+=1
-        #         except:
-        #             print('No inserted docid: ', item['id'])
-        #         print('PatternId:', ptid, 'SpanishCout:', spanish_count)
-        #     count += result_size
-        #     print(f"{count}/{totalhits} {elapsed}s")
-        #     with open('program_out.csv', mode='a') as file:
-        #         writer = csv.writer(file, delimiter=',', quotechar="'", quoting=csv.QUOTE_ALL)
-        #         writer.writerow([
-        #             'PatternId: {}, spanishCount: {}, {}/{}'.format(ptid, spanish_count, count, totalhits)
-        #             ])
-        #         file.close()
 
     return spanish_count
 
@@ -214,10 +144,7 @@ def query_core():
     for key, value in search.items():
         if(key == 'results'):
             result = value
-            # # print(key, ":", value)
-            # for item in list(value):
-            #     print('title : ', item['title'])
-            #     print('Abstract :', item['abstract'])
+
     return jsonify(result)
 
 #
