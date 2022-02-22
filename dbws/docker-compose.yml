@@ -22,7 +22,7 @@ services:
     expose:
       - '3306'
     volumes:
-      - mysql_db:/var/lib/mysql
+      - mysql-db:/var/lib/mysql
     command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_spanish_ci']
     networks:
       - pipeline
@@ -45,5 +45,5 @@ networks:
     external: true
     name: custompipeline
 volumes:
-  mysql_db: null
-  mongo_db: null
+  mysql-db: null
+  mongo-db: null

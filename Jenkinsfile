@@ -47,6 +47,16 @@ pipeline {
                 sh 'sh test-environment2.sh'
             }
         }
+        stage('Functional tests') {
+            agent {
+                node { label agentLabel as String }
+            }
+            steps {
+                echo "Deployment test environment from docker hub"
+                sh 'chmod 777 functional.sh'
+                sh 'sh functional.sh'
+            }
+        }
         stage('Deploy Developer') {
             // Developer Branches
             when {
