@@ -73,6 +73,7 @@ def scroll2(search_url, query, ptid):
             try:
                 result, elapsed = query_api(search_url, query, scrollId)
                 time.sleep(2)
+                print(f'scrollId : {result["scrollId"]}')
             except:
                 result=False
             if result:

@@ -9,7 +9,8 @@ spec:
   selector:
     matchLabels:
       service: corews
-  strategy: {}
+  strategy:
+    type: Recreate
   template:
     metadata:
       labels:
@@ -22,5 +23,12 @@ spec:
           ports:
             - containerPort: 5000
           resources: {}
+          volumeMounts:
+            - mountPath: /
+              name: core-pv
       restartPolicy: Always
+      volumes:
+        - name: core-pv
+          persistentVolumeClaim:
+            claimName: core-pv
 status: {}
