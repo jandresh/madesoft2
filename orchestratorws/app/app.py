@@ -1,6 +1,5 @@
 from flask import Flask, jsonify, request
 import requests
-import time
 
 app = Flask(__name__)
 
@@ -112,49 +111,3 @@ def pipeline3():
                                     success_author_insert = 1
             actual_pattern += 1
     return jsonify(patterns_list)
-
-
-#
-#         elif (pattern['db'] == 'CORE'):
-#             try:
-#                 search_json = post_json_request(
-#                     'http://corews:5000/core2', {"query": pattern['pattern'], "idpattern": pattern['id']})
-#             except:
-#                 get_metadata = False
-#                 print('Not Success')
-#             if get_metadata:
-#                 print("CORE insert success:%s" % pattern['pattern'])
-#                 print('Spanish results: ', search_json['result'])
-#             else:
-#                 print("CORE insert not success:%s" % pattern['pattern'])
-
-#     results = execute_mysql_query(
-#         'SELECT patid, docid, title FROM searches order by patid desc', connection)
-#     connection.close()
-#     return jsonify(results)
-
-
-# METAPUB OUT:
-
-# {
-#   "abstract": "This article proposes and evaluates two models for integrating self-reported health status measures for the elderly with dominant conceptualizations of physical health. Each model includes three dimensions of physical health: chronic illness, functional limitation, and self-rated health. In Model 1, the dimensions are linked in a causal framework, whereas in Model 2, a second-order factor, labeled physical health status, is hypothesized to account for the relationships among the three dimensions. Each model was tested with data gathered in Cleveland (N = 1,834) and Virginia (N = 2,146) using the Older Americans Resources and Services Multidimensional Functional Assessment Questionnaire (OARS MFAQ). Analyses were further replicated by randomly dividing each sample. Both models fit the data well; their utilities will depend on the way in which physical health is conceptualized and on the nature of the research question at hand.",
-#   "authors": [
-#     "Whitelaw NA",
-#     "Liang J"
-#   ],
-#   "authors_str": "Whitelaw NA; Liang J",
-#   "citation": "Whitelaw NA and Liang J. The structure of the OARS physical health measures. The structure of the OARS physical health measures. 1991; 29:332-47. doi: 10.1097/00005650-199104000-00003",
-#   "doi": "10.1097/00005650-199104000-00003",
-#   "history": {
-#     "entrez": "Mon, 01 Apr 1991 00:00:00 GMT",
-#     "medline": "Mon, 01 Apr 1991 00:00:00 GMT",
-#     "pubmed": "Mon, 01 Apr 1991 00:00:00 GMT"
-#   },
-#   "pmid": "2020202",
-#   "title": "The structure of the OARS physical health measures.",
-#   "url": "https://ncbi.nlm.nih.gov/pubmed/2020202",
-#   "year": "1991"
-# }
-
-# curl -X GET --header 'Accept: application/json' 'https://pub.sandbox.orcid.org/v3.0/expanded-search?q=pmid-self%3A27281629'
-# curl -X GET --header 'Accept: application/json' 'https://pub.sandbox.orcid.org/v3.0/expanded-search?q=doi-self%3A10.1087%2F20120404'
