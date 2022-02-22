@@ -24,7 +24,7 @@ spec:
             - containerPort: 5000
           resources: {}
           volumeMounts:
-            - mountPath: /
+            - mountPath: /corews
               name: core-pv
       restartPolicy: Always
       volumes:

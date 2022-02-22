@@ -82,7 +82,7 @@ def scroll2(search_url, query, ptid):
                 result_size = len(result["results"])
                 if result_size == 0:
                     break
-                file_name = '{}.csv'.format(ptid)
+                file_name = f'{int((ptid + 1) / 2)}.csv'
                 with open(file_name, mode='a') as file2:
                     writer2 = csv.writer(file2, delimiter=';', quotechar="'", quoting=csv.QUOTE_ALL)
                     for item in result["results"]:
