@@ -1,330 +1,138 @@
-Abrasión corneal
-Acné
-Adenocarcinoma
-Aftas bucales
-Albinismo
-Alcoholismo
-Alergia
-Alergia al níquel
-Alergia al sol
-Alzhéimer
-Amenorrea
-Amigdalitis
-Ampollas
-Anemia
-Aneurisma
-Anisakiasis
-Anorexia
-Ansiedad
-Apendicitis
-Arteriosclerosis
-Artritis reumatoide
-Artrosis
-Asbestosis
-Ascitis
-Asma
-Ataxia
-Atrofia vaginal
-Autismo
-Balanitis
-Bartolinitis
-Bocio
-Botulismo
-Bronquiectasias
-Bronquiolitis
-Bronquiolitis obliterante
-Bronquitis
-Brucelosis
-Bruxismo
-Bulimia
-Campylobacter
-Cáncer de cabeza y cuello
-Cáncer de colon
-Cáncer de cuello de útero
-Cáncer de esófago
-Cáncer de estómago
-Cáncer de hígado
-Cáncer de laringe
-Cáncer de laringe
-Cáncer de ovario
-Cáncer de páncreas
-Cáncer de pene
-Cáncer de piel
-Cáncer de próstata
-Cáncer de pulmón
-Cáncer de riñón
-Cáncer de testículo
-Cáncer de tiroides
-Cáncer de vejiga
-Cáncer oral
-Cáncer óseo
-Carcinoma
-Candidiasis
-Carbunco
-Cataratas
-Catarro
-Celiaquía
-Chancroide
-Chikungunya
-Ciática
-Cirrosis
-Cistitis
-Citomegalovirus
-Cólera
-Colesteatoma
-Cólico nefrítico
-Colitis ulcerosa
-Colon irritable
-Congestión nasal
-Conjuntivitis
-Covid
-Covid-19
-Covid19
-Daltonismo
-Déficit de la hormona del crecimiento
-Degeneración macular
-Demencia vascular
-Dengue
-Depresión
-Dermatitis atópica
-Derrame ocular
-Deterioro cognitivo leve
-Diabetes gestacional
-Diabetes insípida
-Diabetes tipo 1
-Difteria
-Disfunción eréctil
-Dislexia
-Dismenorrea
-Dispepsia
-Distonía
-Distrofia muscular de Duchenne
-Diverticulosis
-Ébola
-Edema pulmonar
-Elefantiasis
-Embolia pulmonar
-Empiema
-Encefalitis
+Insuficiencia Cardiaca
+Insuficiencia cardíaca
+Arritmia cardiaca
+Insuficiencia venosa
 Endocarditis
-Endometriosis
-Enfermedad de Addison
-Enfermedad de Behçet
-Enfermedad de Chagas
-Enfermedad de Crohn
-Enfermedad de Huntington
-Enfermedad de Kawasaki
-Enfermedad de La Peyronie
-Enfermedad de Lyme
-Enfermedad de Paget
-Enfermedad de Wilson
-Enfermedad del legionario
-Enfermedad inflamatoria pélvica
-Enfermedad pulmonar obstructiva crónica
-Enfermedad pulmonar obstructiva crónica
-Enfisema
-Epilepsia
-Escleritis
-Esclerodermia
-Esclerosis múltiple
-Escoliosis
-Esófago de Barrett
-Espondilitis anquilosante
-Esquizofrenia
-Esteatosis hepática
-Estrabismo
-Estreñimiento
-Eyaculación precoz
-Faringitis
-Faringitis
-Fascitis plantar
-Fenilcetonuria
+Miocardiopatía
+Enfermedad cardíaca reumática
+Cardiomegalia
+Miocarditis
+Angina de pecho
+Enfermedad arterial
+Hipertensión arterial
+Hipertensión pulmonar
+Cor pulmonale
+Preeclampsia
+Taquicardia
+Bradicardia
+Arritmia cardíaca
 Fibrilación auricular
-Fibromialgia
-Fibrosis pulmonar
-Fibrosis quística
-Fiebre amarilla
-Fiebre de Lassa
-Fiebre de Oropouche
-Fiebre del valle
-Fiebre del valle del Rift
-Fiebre hemorrágica de Crimea-Congo
-Fiebre tifoidea
-Fístula anal
-Fractura de dedo
-Fractura nasal
-Galactorrea
-Galactosemia
-Gastritis
-Gastroenteritis
-Giardiasis
-Glaucoma
-Golpe de calor
-Gonorrea
-Gota
-Gripe – influenza
-Hantavirus
-Hemocromatosis
-Hemofilia
-Hemorragia nasal
-Hemorroides
-Hepatitis
-Hernia de hiato
-Hernia discal
-Hernia inguinal
-Herpes
-Herpes zóster
-Hidatidosis
-Hipercolesterolemia
-Hipermetropía
-Hiperplasia benigna de próstata
-Hipertiroidismo
-Hipoacusia
-Hipocalcemia
-Hipoglucemia
-Hipogonadismo
-Hipotermia
-Hipotiroidismo
-Hirsutismo
-Ictus
-Impétigo
-Incontinencia urinaria
-Infección por clamidia
-Infección urinaria
-Influenza
-Insomnio
-Insomnio familiar fatal
-Insuficiencia hepática
-Insuficiencia renal crónica
-Intolerancia a la histamina
-Intoxicación etílica
-Intoxicación por monóxido de carbono
-Intoxicaciones
-Juanetes
-Laringomalacia
-Linfangioleiomiomatosis
-Mal agudo de montaña
-Malaria
-Melanoma
-Melasma
-Melioidosis
-Meningitis
-Menopausia
-Mesotelioma
-Miastenia gravis
-Micoplasma genital
-Microcefalia
-Mieloma múltiple
-Migraña
-Miomatosis uterina
-Miopía
-Molusco contagioso
-Mononucleosis
-Neumonía
-Neumonía eosinofílica
-Neumotórax
-Obesidad
-Obesidad infantil
-Obesidad mórbida
-Ojo seco
-Oncocercosis
-Onicomicosis
-Orquitis
-Osteomalacia
-Osteomielitis
-Osteonecrosis
-Osteoporosis
-Otitis
-Pancreatitis
-Paperas
-Parálisis cerebral
-Párkinson
-Peritonitis
-Pie de atleta
-Pielonefritis
-Pitiriasis versicolor
-Pleuresía
-Policitemia vera
-Poliomielitis
-Pólipos uterinos
-Presbiacusia
-Presbicia
-Priapismo
-Prostatitis
-Psoriasis
-Reflujo gastroesofágico
-Resfriado común
-Retinosis pigmentaria
-Rinitis
-Rizartrosis
-Rosácea
-Rubéola
-Salmonelosis
-Sarampión
-Sarcoidosis
-Sarcoidosis
-Sarcoma de tejidos blandos
-Sensibilidad química múltiple
-Sepsis
-Shigelosis
-Shock
-Sífilis
-Silicosis
-Síndrome de dificultad respiratoria
-Síndrome de Down
-Síndrome de fatiga crónica
-Síndrome de inmunodeficiencia adquirida
-Síndrome de Klinefelter
-Síndrome de Lynch
-Síndrome de Ovario Poliquístico (SOP)
-Síndrome de Patau
-Síndrome de piernas inquietas
-Síndrome de Reye
-Síndrome de Tourette
-Síndrome del túnel carpiano
-Síndrome metabólico
-Síndrome respiratorio agudo severo
-Síndrome respiratorio de oriente medio
-Sinusitis
-Siringomielia
-Sobrecrecimiento bacteriano en el intestino delgado
-Talasemia
-Telangiectasias
-Tendinitis
-Teniasis
-Tétanos
-Tinnitus
-Tortícolis
-Tos ferina
-Toxicodermias
-Toxoplasmosis
-Tracoma
-Traqueítis
-Trastorno bipolar
-Trastorno obsesivo compulsivo
-Trastorno por déficit de atención e hiperactividad
-Traumatismo craneal
-Tricomoniasis
-Tripanosomiasis africana
-Trombocitopenia inmune primaria
-Tuberculosis
-Tuberculosis
-Tularemia
-Úlcera
-Uretritis
-Urticaria
-Uveítis
-Vaginitis
-Vaginosis bacteriana
-Varicela
-Varices
-Varicocele
-Vértigo
-Virus del Nilo Occidental
-Virus del papiloma humano
-Virus Mayaro
-Virus Nipah
-Virus sincicial respiratorio
-Virus Usutu
-Virus Zika
-Vitíligo
+Fibrilación ventricular
+Flutter auricular
+Flutter auricular de conducción irregular
+Taquicardia sinusal
+Taquicardia supraventricular
+Taquicardia ventricular
+Taquicardia auricular paroxística
+Taquicardia auricular multifocal
+Contracción ventricular prematura
+Ataque cardíaco
+Accidente cerebrovascular
+Trombosis
+Trombosis hialina
+Trombosis por coagulación
+Embolia pulmonar
+Síndrome de Wolff-Parkinson-White
+Síndrome de QT largo
+Síndrome de disfunción sinusal
+Obstrucciones del flujo sanguíneo
+Bloqueo auriculoventricular de primer grado
+Bloqueo auriculoventricular de segundo grado
+Bloqueo auriculoventricular de tercer grado
+Aneurisma de Aorta
+Estenosis Mitral
+Estenosis Aórtica
+Estenosis de Arteria Carótidea
+Estenosis de la arteria renal
+Insuficiencia Aórtica
+Insuficiencia Valvular Mitral
+Insuficiencia valvular aòrtica
+Enfermedad Valvular Pulmonar
+Insuficiencia Cardiaca Congestiva
+Disección de la Aorta
+Disección de la aorta tipo A
+Disección de la aorta tipo B
+Tumores Cardiacos
+Mixoma auricular
+Miocardiopatia Hipertrófica
+Cardiomegalia idiopática
+Anomalía de Ebstein
+Corazón izquierdo hipoplásico
+Atresia pulmonar
+Tetralogía de Fallot
+Drenaje venoso pulmonar anómalo total
+Transposición de los grandes vasos
+Atresia tricúspide
+Tronco arterial
+Estenosis aórtica
+Coartación de la aorta
+Válvula aórtica bicúspide
+Comunicación interauricular
+Canal auriculoventricular
+Coartación de la aorta
+Conducto arterial persistente
+Estenosis pulmonar
+Comunicación interventricular
+Fístula arteriovenosa
+Ateriosclerosis
+Telangiectasia hemorrágica hereditaria
+Oximetría de pulso
+Prueba de esfuerzo
+Tomografía computarizada
+Tomografía cardiaca
+Radiografías de pecho
+Ecografía Doppler
+Ecocardiograma
+Ecocardiograma transesofágico
+Electrocardiograma
+Cateterismo cardiaco
+Resonancia magnética
+Angiografía por resonancia magnética
+Angiografía coronaria
+Angiografía por sustracción digital
+Maniobra vagal
+Cardioversión
+Ablación con catéter
+Marcapasos
+Desfibrilador cardio desfibrilador implantable
+Procedimiento de MAZE
+Ablación cardiaca
+Angioplastia
+Anuloplastia
+Valvuloplastia
+Stent coronario
+Cirugía de bypass coronario
+Reparación de la válvula cardíaca
+Reparación endovascular
+Reemplazo de válvula aórtica transcatéter
+Cirugía de Cox
+Espiral endovascular o embolización con espiral
+Cirugía de corazón abierto
+Transplante de corazón
+Ácido acetilsalicílico
+Carvedilol
+Propranolol
+Atenolol
+Nitroglicerina
+Nifedipina
+Amlodipina
+Ranolazina
+Trimetazidina
+Nitroprusiato
+Quinidina
+Procainamida
+Disopiramida
+Lidocaína
+Tocainida
+Mexiletina
+Fenitoína
+Flecainida
+Encainida
+Propranolol
+Acebutolol
+Amiodarona
+Bretilio
+Sotalol
+Verapamilo
+Heparina
+Clopidogreo
