@@ -15,7 +15,7 @@ def post_json_request(url, obj):
 def query_api(search_url, query, scrollId=None):
     time.sleep(10)
     result_flag = 0
-    while result_flag < 3:
+    while result_flag < 5:
         try:
             headers = {"Authorization": "Bearer "+apikey}
             if not scrollId:
@@ -31,8 +31,8 @@ def query_api(search_url, query, scrollId=None):
             response = None
         if response is not None:
             print(str(response))
-            if(str(response)=="<Response [429]>"):
-                time.sleep(300)
+            if(str(response)=="<Response [429]>" or str(response)=="<Response [500]>"):
+                time.sleep(50)
             try:
                 result = response.json()
                 elapsed = response.elapsed.total_seconds()
@@ -106,7 +106,7 @@ def scroll2(search_url, query, ptid):
                             esp_detect_fullText  = False
                         if esp_detect_title or esp_detect_abstract or esp_detect_fullText:
                             writer2.writerow([
-                                ptid,
+                                int((ptid + 1) / 2),
                                 item['id'],
                                 item['downloadUrl'],
                                 item['title'].replace("\'", ""),
@@ -114,12 +114,12 @@ def scroll2(search_url, query, ptid):
                                 item['fullText'].replace("\'", "")
                             ])
                             spanish_count+=1
-                        print('PatternId:', ptid, 'SpanishCount:', spanish_count)
+                        print('PatternId:', int((ptid + 1) / 2), 'SpanishCount:', spanish_count)
                     count += result_size
                     print(f"{count}/{totalhits} {elapsed}s")
                     writer.writerow([
                         datetime.now(),
-                        'PatternId: {}, spanishCount: {}, {}/{}'.format(ptid, spanish_count, count, totalhits)
+                        'PatternId: {}, spanishCount: {}, {}/{}'.format(int((ptid + 1) / 2), spanish_count, count, totalhits)
                         ])
                     file2.close()
                     if (spanish_count > 12000 or count == totalhits):

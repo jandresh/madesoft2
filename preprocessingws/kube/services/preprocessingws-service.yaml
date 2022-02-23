@@ -8,7 +8,7 @@ spec:
   type: ClusterIP
   ports:
     - name: "5002"
-      port: 5002
+      port: 5000
       targetPort: 5000
   selector:
     service: preprocessingws
