@@ -13,9 +13,9 @@ def post_json_request(url, obj):
     return requests.post(url, json=obj).json()
 
 def query_api(search_url, query, scrollId=None):
-    time.sleep(10)
     result_flag = 0
     while result_flag < 5:
+        time.sleep(10)
         try:
             headers = {"Authorization": "Bearer "+apikey}
             if not scrollId:
@@ -74,6 +74,8 @@ def scroll2(search_url, query, ptid):
                 result, elapsed = query_api(search_url, query, scrollId)
                 time.sleep(2)
                 print(f'scrollId : {result["scrollId"]}')
+                if result is None:
+                    break
             except:
                 result=False
             if result:
@@ -124,6 +126,8 @@ def scroll2(search_url, query, ptid):
                     file2.close()
                     if (spanish_count > 12000 or count == totalhits):
                         break
+            else:
+                scrollId = None
             file.close()
 
     return spanish_count

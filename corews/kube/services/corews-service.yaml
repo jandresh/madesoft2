@@ -5,7 +5,7 @@ metadata:
     service: corews
   name: corews
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   ports:
     - name: "5003"
       port: 5000
