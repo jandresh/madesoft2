@@ -42,7 +42,7 @@ def query_api(search_url, query, scrollId=None):
                 except:
                     print("Control Point 3")
                     success = False
-            else:
+            elif(str(response)=="<Response [429]>"):
                 time.sleep(300)
             if success:
                 print("Control Point 4")
