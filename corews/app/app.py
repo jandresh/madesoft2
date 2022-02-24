@@ -32,6 +32,7 @@ def query_api(search_url, query, scrollId=None):
             time.sleep(3)
             response = None
         if response is not None:
+            success = False
             if(str(response)=="<Response [200]>"):
                 print("Control Point 2")
                 success = True
