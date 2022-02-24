@@ -15,6 +15,7 @@ def post_json_request(url, obj):
 def query_api(search_url, query, scrollId=None):
     result_flag = 0
     while result_flag < 5:
+        print(f"result_flag: {result_flag")
         time.sleep(10)
         try:
             headers = {"Authorization": "Bearer "+apikey}
@@ -26,22 +27,28 @@ def query_api(search_url, query, scrollId=None):
                     f"{search_url}?q={query}&limit=100&scrollId={scrollId}", headers=headers)
             print(f"response: {str(response)}, query: {query}, scrollId: {scrollId}")
         except:
+            print("Control Point 1")
             print('Post request fail, trying again ...')
             time.sleep(3)
             response = None
         if response is not None:
             if(str(response)=="<Response [200]>"):
+                print("Control Point 2")
                 success = True
                 try:
                     result = response.json()
                     elapsed = response.elapsed.total_seconds()
                 except:
+                    print("Control Point 3")
                     success = False
             else:
                 time.sleep(50)
             if success:
+                print("Control Point 4")
                 return result, elapsed
+        print("Control Point 6)
         result_flag +=1
+    print("Control Point 7")
     return None, None
 
 
@@ -78,14 +85,17 @@ def scroll2(search_url, query, ptid):
                 time.sleep(2)
                 print(f'scrollId : {result["scrollId"]}')
                 if result is None:
+                    print("Control Point 8")
                     break
             except:
-                result=False
+                print("Control Point 9")
+                result=None
             if result is not None:
                 scrollId = result["scrollId"]
                 totalhits = result["totalHits"]
                 result_size = len(result["results"])
                 if result_size == 0:
+                    print("Control Point 10")
                     break
                 file_name = f'{int((ptid + 1) / 2)}.csv'
                 with open(file_name, mode='a') as file2:
@@ -110,6 +120,7 @@ def scroll2(search_url, query, ptid):
                         except:
                             esp_detect_fullText  = False
                         if esp_detect_title or esp_detect_abstract or esp_detect_fullText:
+                            print("Control Point 11")
                             writer2.writerow([
                                 int((ptid + 1) / 2),
                                 item['id'],
@@ -127,13 +138,17 @@ def scroll2(search_url, query, ptid):
                         'PatternId: {}, spanishCount: {}, {}/{}'.format(int((ptid + 1) / 2), spanish_count, count, totalhits)
                         ])
                     file2.close()
+                    print("Control Point 12")
                     if (spanish_count > 12000 or count == totalhits):
+                        print("Control Point 13")
                         break
             else:
+                print("Control Point 14")
                 file.close()
                 break
+            print("Control Point 15")
             file.close()
-
+    print("Control Point 16")
     return spanish_count
 
 #
