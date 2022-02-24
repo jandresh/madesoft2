@@ -24,21 +24,24 @@ def query_api(search_url, query, scrollId=None):
             else:
                 response = requests.get(
                     f"{search_url}?q={query}&limit=100&scrollId={scrollId}", headers=headers)
+            print(f"response: {str(response)}, query: {query}, scrollId: {scrollId}")
         except:
             print('Post request fail, trying again ...')
             time.sleep(3)
-            result_flag +=1
             response = None
         if response is not None:
-            print(str(response))
             if(str(response)=="<Response [429]>" or str(response)=="<Response [500]>"):
                 time.sleep(50)
-            try:
-                result = response.json()
-                elapsed = response.elapsed.total_seconds()
-            except:
-                return None, None
-            return result, elapsed
+            else:
+                success = True
+                try:
+                    result = response.json()
+                    elapsed = response.elapsed.total_seconds()
+                except:
+                    success = False
+            if success:
+                return result, elapsed
+        result_flag +=1
     return None, None
 
 
