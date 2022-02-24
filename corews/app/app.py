@@ -81,7 +81,7 @@ def scroll2(search_url, query, ptid):
                     break
             except:
                 result=False
-            if result:
+            if result is not None:
                 scrollId = result["scrollId"]
                 totalhits = result["totalHits"]
                 result_size = len(result["results"])
@@ -130,7 +130,8 @@ def scroll2(search_url, query, ptid):
                     if (spanish_count > 12000 or count == totalhits):
                         break
             else:
-                scrollId = None
+                file.close()
+                break
             file.close()
 
     return spanish_count
