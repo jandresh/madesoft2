@@ -14,9 +14,9 @@ def post_json_request(url, obj):
 
 def query_api(search_url, query, scrollId=None):
     result_flag = 0
-    while result_flag < 5:
+    while result_flag < 3:
         print(f"result_flag: {result_flag}")
-        time.sleep(10)
+        time.sleep(20)
         try:
             headers = {"Authorization": "Bearer "+apikey}
             if not scrollId:
@@ -42,7 +42,7 @@ def query_api(search_url, query, scrollId=None):
                     print("Control Point 3")
                     success = False
             else:
-                time.sleep(50)
+                time.sleep(300)
             if success:
                 print("Control Point 4")
                 return result, elapsed
