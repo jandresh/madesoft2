@@ -30,15 +30,15 @@ def query_api(search_url, query, scrollId=None):
             time.sleep(3)
             response = None
         if response is not None:
-            if(str(response)=="<Response [429]>" or str(response)=="<Response [500]>"):
-                time.sleep(50)
-            else:
+            if(str(response)=="<Response [200]>"):
                 success = True
                 try:
                     result = response.json()
                     elapsed = response.elapsed.total_seconds()
                 except:
                     success = False
+            else:
+                time.sleep(50)
             if success:
                 return result, elapsed
         result_flag +=1
