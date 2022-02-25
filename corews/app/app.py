@@ -20,10 +20,10 @@ def query_api(search_url, query, scrollId=None):
             headers = {"Authorization": "Bearer "+apikey}
             if not scrollId:
                 response = requests.get(
-                    f"{search_url}?q={query}&limit=20&scroll=true", headers=headers)
+                    f"{search_url}?q={query}&limit=100&scroll=true", headers=headers)
             else:
                 response = requests.get(
-                    f"{search_url}?q={query}&limit=20&scrollId={scrollId}", headers=headers)
+                    f"{search_url}?q={query}&limit=100&scrollId={scrollId}", headers=headers)
             print(f"response: {str(response)}, query: {query}, scrollId: {scrollId}")
         except:
             print("Control Point 1")
