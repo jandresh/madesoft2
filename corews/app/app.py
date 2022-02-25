@@ -14,17 +14,16 @@ def post_json_request(url, obj):
 
 def query_api(search_url, query, scrollId=None):
     result_flag = 0
-    while result_flag < 3:
+    while result_flag < 5:
         print(f"result_flag: {result_flag}")
-        time.sleep(5)
         try:
             headers = {"Authorization": "Bearer "+apikey}
             if not scrollId:
                 response = requests.get(
-                    f"{search_url}?q={query}&limit=50&scroll=true", headers=headers)
+                    f"{search_url}?q={query}&limit=20&scroll=true", headers=headers)
             else:
                 response = requests.get(
-                    f"{search_url}?q={query}&limit=50&scrollId={scrollId}", headers=headers)
+                    f"{search_url}?q={query}&limit=20&scrollId={scrollId}", headers=headers)
             print(f"response: {str(response)}, query: {query}, scrollId: {scrollId}")
         except:
             print("Control Point 1")
