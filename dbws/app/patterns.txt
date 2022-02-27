@@ -1,658 +1,153 @@
-Ausencia congénita bilateral de los conductos deferentes
-Espina bífida aislada
-Lupus eritematoso cutáneo
-Obesidad debida a deficiencia del receptor de melanocortina-4
-Persistencia del conducto arterioso
-Síndrome de Noonan
-Síndrome de poliposis hiperplástico
-Carcinoma de células escamosas de la cabeza y cuello
-Déficit congénito aislado de la globulina de unión a la tiroxina
-Displasia ventricular derecha arritmógena
-Enfermedad de Meniere
-Trisomía X
-Esclerodermia
-Carcinoma de células renales no familiar
-Deleción parcial del cromosoma Y
-Embriopatía por citomegalovirus
-Síndrome de QT largo familiar
-Síndrome de Romano-Ward
-Uveitis
-Hipotiroidismo primario congénito
-Carcinoma no papilar de células transicionales de la vejiga
-Linfoma folicular
-Eliptocitosis hereditaria
-Osteocondritis desecante
-Proctitis por radiación
-Criptosporidiosis
-Hipotiroidismo congénito permanente
-Tetralogía de Fallot
-Toxoplasmosis congénita
-Transposición de las grandes arterias
-Gastrosquisis
-Amiloidosis
-Cáncer raro del ovario
-Policitemia vera
-791 Retinosis pigmentaria
-Cáncer gástrico
-Déficit de hormonas pituitarias combinado no adquirido
-Hipotiroidismo congénito
-Estenosis pulmonar valvular
-Dermatitis herpetiforme
-Hernia diafragmática congénita
-Leucemia linfocítica crónica de células B
-Enfermedad linfoproliferativa post-trasplante
-Púrpura trombocitopénica trombótica
-Alopecia universal
-Déficit de alfa-1 antitripsina
-Enfermedad de Gelineau
-Esclerodermia sistémica
-Hemiagenesia tiroidea
-Púrpura trombocitopénica inmune
-Sindactilia tipo 1
-Síndrome de cáncer de mama y ovario hereditario
-Glaucoma neovascular
-Atresia de esófago
-Linfoma cutáneo primario de células T
-Malformación anorectal aislada
-Trombocitemia esencial
-Sarcoma de partes blandas
-Fallo hepático agudo
-Fístula anal
-Neurofibromatosis tipo 1
-Asociación MURCS
-Enfermedad de Charcot-Marie-Tooth
-Hipotiroidismo congénito por anomalía del desarrollo
-Queratoconjuntivitis primaveral
-Artritis juvenil oligoarticular
-Canal atrioventricular completo
-Canal atrioventricular parcial
-Déficit congénito de sacarasa-isomaltasa
-Escafocefalia aislada
-Esferocitosis hereditaria
-Hiperinsulinismo aislado congénito
-Hipogonadismo hipogonadotrópico congénito
-Linfoma difuso de células B grandes
-Miastenia grave
-Síndrome de Brugada
-Síndrome de Marfan
-Síndrome de Turner
-Síndrome de X frágil
-Síndromes mielodisplásicos
-Tuberculosis
-Síndrome hipernictemeral
-Pénfigo vulgar
-Síndrome nefrótico idiopático sensible a esteroides
-Mieloma múltiple
-Miocardiopatía dilatada familiar aislada
-Amiloidosis secundaria
-Dermatomiositis
-Fiebre botonosa
-Ictiosis recesiva ligada al X
-Amioplasia congénita
-Atresia de intestino delgado
-Enfermedad de Buerger
-Enfermedad de Rendu-Osler-Weber
-Queratitis estromal
-Drepanocitosis
-Enfermedad de Parkinson de inicio en el adulto joven
-Queratoconjuntivitis atópica
-Sarcoidosis
-Síndrome de deleción 1p36
-Síndrome de Lennox-Gastaut
-Síndrome neuroléptico maligno
-Citrulinemia
-Enfermedad de Hirschsprung
-Ectopia tiroidea
-Cistinuria
-Cirrosis biliar primaria
-Síndrome de Stickler
-Holoprosencefalia
-Síndrome de Williams
-Displasia broncopulmonar
-Tumor estromal gastrointestinal esporádico familiar
-Fibrosis quística
-Enfermedad de Von Willebrand
-Estenosis supravalvular aórtica
-Malformación linfática
-Síndrome de Ehlers-Danlos, tipo hipermóvil
-Retinopatía del prematuro
-Carcinoma pancreático
-Déficit de acil-CoA deshidrogenasa de cadena media
-Hiperornitinemia - hiperamonemia - homocitrulinuria
-Onfalocele
-Distonía focal
-Fibrosis pulmonar idiopática
-Neuroblastoma
-Colangitis esclerosante primaria
-Enfermedad veno-oclusiva hepática
-Neoplasia endocrina múltiple tipo 1
-Síndrome de Mayer-Rokitansky-Küster-Hauser
-Alopecia total
-Colitis colagenosa
-Acalasia idiopática
-Amaurosis congénita de Leber
-Dermatofibrosarcoma protuberante
-Dismorfia digitotalar
-Enfermedad de Stargardt
-Granulomatosis de Wegener
-Hiperplasia suprarrenal congénita
-Leucemia de células peludas
-Linfoma de Hodgkin
-Meningitis meningocócica
-Migraña hemipléjica familiar o esporádica
-Miopatía distal de tipo Welander, tipo sueco
-Nefroblastoma
-Pancreatitis aguda recurrente
-Plagiocefalia aislada
-Síndrome de Duane
-Síndrome hipereosinofílico idiopático
-Taquicardia ventricular polimórfica catecolinérgica
-Tumor glial
-Tumor óseo raro
-Tumor secretor de catecolaminas
-Disgenesia gonadal
-Síndrome de deleción 22q11.2
-Atresia duodenal
-Lesión cerebral isquémica e hipóxica neonatal
-Leucemia mieloide aguda
-Mastocitosis
-Trastorno de la fosforilación oxidativa mitocondrial debido a anomalías del ADN nuclear
-Esclerosis tuberosa
-Trisomía 18
-Apnea de la prematuridad
-Siringomielia
-Síndrome NARP
-Atresia de coanas
-Coloboma ocular
-Esclerosis sistémica cutánea limitada
-Poliartritis, factor reumatoide negativo
-Síndrome CREST
-Hiperlipoproteinemia tipo 3
-Hemofilia
-Síndrome de Kallmann
-Hendidura laringotraqueoesofágica
-Ataxia cerebelosa autosómica recesiva
-Carcinoma medular de tiroides
-Cistationinuria
 Enfermedad de Huntington
-Hemofilia A
-Osteogénesis imperfecta
-Síndrome de Fryns
-Síndrome de Sotos
-Trigonocefalia aislada
-Iminoglicinuria
-Enfermedad del arañazo de gato
-Síndrome SUNCT
-Polimiositis
-Síndrome de Cushing
-Vasculitis
-Enfermedad de Wilson
-Fenilcetonuria
-Fístula arteriovenosa cerebral
-Leucemia mieloide crónica
-Miopatía tibial
-Parálisis supranuclear progresiva
-Poliposis adenomatosa familiar
-Albinismo oculo-cutáneo
-Artritis relacionada con entesitis
-Atresia biliar
-Síndrome de Pendred
-Malformación de mano hendida - pie hendido
-Anoftalmia - microftalmia, aislada
-Síndrome de Smith-Magenis
-Atresia tricúspide
-Esclerosis lateral amiotrófica
-Acromegalia
-Artritis juvenil idiopática de inicio sistémico
-Braquicefalia aislada
-Condrosarcoma
-Craneoraquisquisis
-Déficit de Fructosa-1,6 difosfatasa
-Displasia epifisaria múltiple
-Disquinesia ciliar primaria
-Distrofia muscular congénita
-Distrofia muscular de Duchenne
-Enfermedad de Thomsen y Becker
-Foramina parietal
-Hipofosfatemia ligada al X
-Intolerancia hereditaria a la fructosa
-Osteopetrosis de Albers-Schönberg
-Osteosarcoma
-Paraplejía espástica hereditaria
-Retinosquisis ligada a X
-Síndrome de Buschke-Ollendorff
-Síndrome de Ehlers-Danlos tipo 1
-Síndrome de Pierre Robin aislado
-Síndrome hydrolethalus
-Calcifilaxis
-Síndrome de Usher
-Tritanopía
-Acrocefalosindactilia
-Atrofia multisistémica
-Distrofia miotónica de Steinert
-Poliartritis, factor reumatoide positivo
-Reumatismo psoriásico
-Hemimelia
-Bandas amnióticas familiares
-Carcinoma esofágico
-Carcinoma neuroendocrino cutáneo
-Degeneración cortico-basal
-Dishormonogénesis tiroidea familiar
-Distrofia facioescapulohumeral
-Enfermedad de Behçet
-Enfermedad de Cushing
-Esclerosis sistémica cutánea difusa
-Inmunodeficiencia común variable
-Linfoma de células del manto
-Monosomía 5p
-Porfiria cutánea tarda (PCT)
-Síndrome de Aarskog-Scott
-Síndrome de Hartnup
-Síndrome de Rett
-Tumor ependimario
-Anisakiasis
-Enfermedad mixta del tejido conectivo
-Mastocitosis sistémica indolente
-Miopatía congénita
-Pneumonía intersticial aguda
-Polineuropatía desmielinizante inflamatoria crónica
-Síndrome de Smith-Lemli-Opitz
-Síndrome de West
-Síndrome de Worster-Drought
-Trisomía 13
-Urticaria solar
-Adrenoleucodistrofia ligada al X
-Atireosis
-Displasia tanatofórica
-Hipoplasia tiroidea
-Síndrome de Ehlers-Danlos tipo clásico
-Tumor del tronco encefálico
-Amebiasis por amebas salvajes
-Síndrome de Guillain-Barré
-Síndrome del intestino corto
-Distrofia coroidea areolar central
-Acromatopsia
-Amiotrofia neurálgica
-Hipocondroplasia
-Mastocitosis sistémica
-Acatalasemia
-Anencefalia/exencefalia aislada
-Mesotelioma
-Periarteritis nodosa
-Polirradiculoneuropatía desmielinizante inflamatoria aguda
-Síndrome de Kabuki
-Ataxia espinocerebelosa autosómica dominante
-Atrofia muscular espinal proximal
+Distrofia muscular
+Espina bífida
+Enfermedad de alzheimer
 Demencia frontotemporal
-Hipertensión pulmonar tromboembólica crónica
-Malaria
-Síndrome CADASIL
-Síndrome de choque tóxico bacteriano
-Síndrome de Saethre-Chotzen
-Neoplasia endocrina múltiple tipo 2
-Síndrome de Goldenhar
-Síndrome del injerto contra huesped
-Síndrome de Leigh
-Síndrome de Alagille
-Acondroplasia
-Afasia progresiva no fluente
-Astrocitoma
-Distrofia de conos y bastones
-Miocardiopatía restrictiva aislada familiar
-Pemfigoide bulloso
-Pseudoxantoma elástico
-Queratodermia palmoplantar no epidermolítica
-Resistencia periférica a las hormonas tiroideas
-Síndrome de Beckwith-Wiedemann
-Síndrome de Gitelman
-Síndrome de regresión testicular
-Síndrome de aspiracion de meconio
-Epidermolisis ampollosa simple
-Histiocitoma fibroso maligno
-Síndrome de Waardenburg (término genérico)
-Sarcoma de Ewing
-Déficit aislado de 3-metilcrotonil-CoA carboxilasa
-Síndrome de Rett atípico
-Síndrome de Peutz-Jeghers
-Síndrome de Usher tipo 2
-Sarcoma de Kaposi
-Colangiocarcinoma
-Malformación de Dandy-Walker aislada
-Agenesia renal bilateral
-Agenesia traqueal
+Enfermedad de Pick
+Enfermedad de Alpers
+Deterioro cognitivo leve
+Degeneración corticobasal
+Enfermedad de epilepsia
+Meningitis bacteriana
+Meningitis no piógena
+Meningoencefalitis
+Meningomielitis
+Mielitis ascendente aguda
+Mielitis necrotizante subaguda
+Mielitis transversa aguda
+Encefalomielitis miálgica benigna
+Encefalopatía aguda necrotizante hemorrágica
+Esclerosis multiple
+Esclerosis tuberosa
+Esclerosis lateral amiotrófica
 Ataxia de Friedreich
-Complejo miembros-pared abdominal
-Craneofaringioma
-Enfermedad de Coats
-Enfermedad de Crouzon
-Enfermedad de Darier
-Galactosemia
-Hemicrania paroxística
-Hemimelia fibular
-Hemofilia B
-Histiocitosis de células de Langerhans
-Linfoma anaplásico de células grandes
-Neurodegeneración con acúmulo cerebral de hierro
-Nevus melanocítico congénito de gran tamaño
-Osteocondromas múltiples
-Sarcosinemia
-Síndrome de Alport
-Síndrome de Kearns-Sayre
-Síndrome de Klippel-Feil aislado
-Síndrome de la cimitarra
-Síndrome de Poland
-Síndrome de Treacher-Collins
-Síndrome de Wolf-Hirschhorn
-Síndrome GRACILE
-Síndrome uña-rótula
-Trastorno desintegrativo de la infancia
-Trisomía 12p
-Xantomatosis cerebrotendinosa
-Hendidura esternal
-Acidemia metilmalónica resistente a vitamina B12
-Síndrome 48,XXYY
-Síndrome de Cornelia de Lange
-Síndrome de Gorlin
-Síndrome de Muenke
-Enfermedad de Kennedy
-Hidrocefalia con estenosis del acueducto de Silvio
-Lisinuria con intolerancia a proteínas
-Neurofibromatosis tipo 2
-Síndrome de Van Der Woude
-Déficit de 3-hidroxiacil-CoA deshidrogenasa de ácidos grasos de cadena larga
-Homocistinuria clásica
-Síndrome de Walker-Warburg
-Embriopatía alcohólica
-Enfermedad de Charcot-Marie-Tooth ligada al X
-Pseudoacondroplasia
-Síndrome de Prader-Willi
-Ataxia espinocerebelosa tipo 1
-Ataxia espinocerebelosa tipo 2
-Ataxia espinocerebelosa tipo 3
-Complejo fémur-peroné-cúbito
-Coroideremia
-Enfermedad de almacenamiento de glucógeno por déficit de maltasa ácida
-Enfermedad de Devic
-Esclerosis lateral primaria
-Esquisencefalia
-Hipertensión arterial pulmonar idiopática y/o familiar
-Legionelosis
-Mesotelioma peritoneal maligno
-Neuropatía motriz multifocal con bloqueo de conducción
-Neuropatía óptica hereditaria de Leber
-Porfiria hepática crónica
-Síndrome de antisintetasas
-Síndrome de Budd-Chiari
-Síndrome de Coffin-Lowry
-Síndrome de Usher tipo 1
-Síndromes hipereosinofílicos
-Trastorno congénito de la glicosilación
-Carcinoma de células pequeñas de vejiga
-Atrofia muscular espinal proximal de tipo 2
-Déficit de ornitina transcarbamilasa
-Aniridia aislada
-Fibrosis retroperitoneal
-Síndrome "cat-eye"
-Lipofuscinosis neuronal ceroide tardía infantil
-Síndrome de Meckel
-Atrofia muscular espinal proximal de tipo 1
-Enfermedad de Still del adulto
-Hiperfenilalaninemia materna
-Malformación de Ebstein
-Melanocitosis neurocutánea
-Síndrome de Apert
-Enanismo diastrófico
-Pénfigo superficial
-Poliquistosis renal, autosómica y recesiva
-Síndrome orofaciodigital tipo 1
-Conjuntivitis leñosa
-Enfermedad de Von Hippel-Lindau
-Síndrome de Angelman
-Síndrome de Joubert y trastornos relacionados
-Retinoblastoma
-Cutis verticis gyrata - déficit mental
-Acidemia isovalérica
-Anemia diseritropoyética, congénita
-Angioedema hereditario
-Ataxia - telangiectasia
-Ataxia de Harding
-Carcinoma adrenocortical
-Carcinoma Hepatocelular
-Condrodisplasia punctata, tipo rizomélico
-Déficit de glutaril-CoA deshidrogenasa
-Displasia ectodérmica hidrótica
-Displasia espondiloepifisaria congénita
-Displasia espondilo-metafisaria
-Distrofia corneal macular
-Distrofia muscular de cinturas autosómica recesiva tipo 2A
-Distrofia muscular de cinturas y extremidades autosómica recesiva tipo 2l
-Distrofia muscular oculofaríngea
-Encondromatosis
-Enfermedad de Gaucher
-Enfermedad de Krabbe
-Enfermedad de Niemann-Pick tipo C
-Glioblastoma
-Hipo crónico
-Hipotiroidismo congénito por el paso a través de la placenta de anticuerpos maternos inhibidores de la unión a TSH
-Leucemia linfocítica granular de células T grandes
-Lisencefalia en empedrado
-Mielofibrosis con metaplasia mieloide
-Miopatía miotónica proximal
-Miopatía nemalínica
-Mucopolisacaridosis tipo 1
-Parálisis periódica hipocalémica
-Queratitis por acantoamoeba
-Síndrome de Aicardi
-Síndrome de Churg-Strauss
-Síndrome de Ehlers-Danlos de tipo vascular
-Síndrome de Ehlers-Danlos, tipo cifoscoliosis
-Síndrome de Joubert
-Síndrome de Miller-Dieker
-Síndrome de Pfeiffer
-Síndrome de rotura de Nijmegen
-Síndrome hemolítico urémico atípico
-Síndrome miasténico de Lambert-Eaton
-Tríada de Currarino
-Tumor maligno de la trompa de Falopio
-Acrania
-Fallo autonómico puro
-Lipodistrofias primarias
-Enfermedad de Gaucher tipo 1
-Hemiplejia alternante de la infancia
-Protoporfiria eritropoyética
-Síndrome de Lewis-Summer
-Síndrome de Rubinstein-Taybi
-Síndrome MERRF
-Mucopolisacaridosis tipo 3
-Albinismo ocular recesivo ligado al X
-Distrofia muscular de cinturas
-Epidermólisis ampollosa hereditaria
-Hemofilia B grave
-Sirenomelia
-Embriopatía por talidomida
-Miopatía tipo Bethlem
-Hepatitis crónica autoinmune
-Mastocitosis cutánea
-Osteopetrosis maligna autosómica recesiva
-Síndrome de Alpers
-Síndrome de Bardet-Biedl
-Trastornos del desarrollo sexual con cariotipo 46,XY por déficit de 17-beta-hidroxiesteroide deshidrogenasa
-Enfermedad de Blackfan-Diamond
-Síndrome PMM2-CDG
-Displasia espondiloepifisaria tardía
-Anomalía en la síntesis de ácidos biliares
-Hemofilia B leve
-Hemofilia B moderadamente grave
-Mucopolisacaridosis tipo 2
-Parálisis supranuclear progresiva - síndrome corticobasal
-Síndrome de Hurler
-Síndrome de Wolfram
-Linfangioleiomiomatosis
-Pentalogía de Cantrell
-Síndrome de McCune-Albright
-Síndrome de Shwachman-Diamond
-Hepatoblastoma
-Porfiria aguda intermitente
-Alcaptonuria
-Beta-talasemia
-Cistinosis
-Déficit combinado de los factores V y VIII
-Parálisis periódica hipercalémica
-Síndrome de Axenfeld-Rieger
-Síndrome de Birt-Hogg-Dubé
-Síndrome de Netherton
-Síndrome de Ondine
-Miositis por cuerpos de inclusión
-Atrofia dentato-rubro-pálido-luisiana
-Lipofuscinosis neuronal ceroidea juvenil
-Aciduria argininosuccínica
-Enfermedad de Takayasu
-Síndrome de Cowden
-Síndrome de Werner
-Hemofilia A grave
-Hemofilia A leve
-Síndrome de Townes-Brocks
-Aplasia medular idiopática
-Distonía de torsión de aparición temprana
-Distrofia muscular congénita tipo 1A
-Enfermedad de Niemann-Pick tipo B
-Enfermedad granulomatosa crónica
-Miopatía congénita "central core"
-Mucopolisacaridosis tipo 4
-Neutropenia congénita grave
-Neutropenia congénita grave, autosómica dominante
-Síndrome de Sjögren-Larsson
-Síndrome de Holt-Oram
-Síndrome de Lesch-Nyhan
-Déficit congénito del factor VII
-Displasia campomélica
-Enfermedad de Menkes
-Enfermedad de Moyamoya
-Atrofia muscular espinal proximal de tipo 4
-Anemia de Fanconi
-Distonía dopa-sensible
-Distrofia muscular de Emery-Dreifuss
-Encefalopatías espongiformes transmisibles
-Enfermedad de Tay-Sachs
-Hemoglobinuria paroxística nocturna
-Interrupción del arco aótico
-Pancreatitis crónica hereditaria
-Polidactilia en espejo - segmentación vertebralanomalías de los miembros
-Síndrome de Jervell y Lange-Nielsen
-Síndrome de pterigium poplíteo autosómico dominante
-Síndrome de Sanfilippo tipo A
-Síndrome óculo-cerebro-renal
-Síndromes miasténicos congénitos
-Transposición congénitamente corregida de las grandes arterias
-Distrofia muscular de cinturas autosómica recesiva tipo 2D
-Distrofia muscular de cinturas autosómica recesiva tipo 2F
-Cáncer de paratiroides
-Enfermedad de Wolman
-Atrofia muscular espinal proximal de tipo 3
-Miopatía de Miyoshi
-Enfermedad de Niemann-Pick tipo A
-Enfermedad de Pelizaeus-Merzbacher
-Lipodistrofia, tipo Berardinelli
-Síndrome de Papillon-Lefèvre
-Testotoxicosis
-Timoma
-Síndrome de Hurler-Scheie
-Xeroderma pigmentoso
-Enfermedad de Fabry
-Hemofilia A moderamente grave
-Inmunodeficiencia combinada grave por déficit de adenosina desaminasa
-Síndrome de Barth
-Hipofosfatasia
-Acrodermatitis enteropática con déficit en zinc
-Alfa-manosidosis
-Condrosarcoma mixoide extraesquelético
-Déficit congénito de proteína C
-Déficit congénito de proteína S
-Déficit congénito del factor X
-Diabetes mellitus neonatal
-Distrofia muscular de cinturas autosómica dominante tipo 1B
-Enfermedad de Letterer-Siwe
-Enfermedad de Unverricht-Lundborg
-Epilepsia dependiente de piridoxina
-Hiperoxaluria primaria tipo 1
-Mastocitosis sistémica agresiva
-Microtia
-Necrólisis epidérmica tóxica
-Síndrome de Ehlers-Danlos
-Síndrome de Laron
-Síndrome de Scheie
-Distrofia muscular de cinturas autosómica recesiva tipo 2C
-Síndrome de Sezary
-Coartación de aorta atípica
-Enfermedad de Pelizaeus-Merzbacher
-Hiperglicinemia no cetósica aislada
-Histiocitosis de células de Langerhans en el adulto
-Mucopolisacaridosis tipo 6
-Déficit congénito de fibrinógeno
-Diabetes insípida nefrogénica
-Enfermedad de Nasu-Hakola
-Mucolipidosis tipo 2
-Síndrome de Hermansky-Pudlak
-Beta-manosidosis
-Síndrome de Alström
-Distrofia muscular congénita de Ullrich
-Distrofia muscular de cinturas autosómica recesiva tipo 2B
-Picnodisostosis
-Aceruloplasminemia
-Agammaglobulinemia ligada a X
-Aplasia tibial - ectrodactilia
-Atrofia muscular espinal proximal de aparición en adultos, autosómica dominante
-Atrofia muscular espinal proximal infantil, autosómica dominante
-Cáncer anaplásico de tiroides
-Déficit congénito del factor V
-Déficit congénito del factor XI
-Diabetes-sordera de transmisión materna
-Disqueratosis congénita
-Encefalomiopatía neurogastrointestinal mitocondrial
-Enfermedad de almacenamiento de glucógeno por déficit de enzima ramificante del glucógeno
-Enfermedad de Creutzfeldt-Jakob
+Demencia con cuerpos de Lewy
+Enfermedad de Parkinson
+Atrofia muscular espinal
+Accidente cerebrovascular
+Apoplejía cerebral
+Ataque cerebral
+Derrame cerebral
+Infarto cerebral
+Lupus eritematoso sistémico
+Corea de Huntington
+Demencia de Huntington
+Ataxia hereditaria
+Enfermedad de Strumpel-Lorrain
+Atrofia muscular espinal
+Neuromiopatía carcinomatosa
+Encefalopatía límbica paraneoplásica
+Síndrome neuroléptico maligno
+Enfermedad de la neurona motora
+Degeneración multisistémica del sistema nervioso autónomo
+Degeneración estriatonígrica
+Parálisis cerebral atetoide
+Migraña sin aura
+Migraña con aura
+Síndrome de Benedikt
+Síndrome de Claude
+Síndrome de Foville
+Síndrome de Millard-Gubler
+Síndrome de Wallenberg
+Síndrome de Weber
+Síndrome cerebrovascular cerebeloso
+Síndrome lacunar motor puro
+Síndrome lacunar sensitivo puro
+Trastornos del sueño
+Apnea del sueño
+Insomnio debido a un trastorno mental
+Insomnio idiopático
+Hipersomnia
+Hipoventilación alveolar no obstructiva
+Narcolepsia con cataplejia
+Narcolepsia sin cataplejia
+Paralisis del sueño aislada recurrente
+Síndrome de piernas inquietas
+Trastorno del sueño-vigilia
+Síndrome de Melkersson-Rosenthal
+Espasmo hemifacial clónico
+Neuralgia amiotrófica
+Neuritis de cintura escapular
+Síndrome de Parsonage-Aldren-Turner
+Síndrome de miembro fantasma
+Síndrome del túnel carpiano
+Síndrome del túnel tarsiano
 Enfermedad de Refsum
-Hemimelia tibial
-Hemofilia adquirida
-Hiperlipoproteinemia tipo 1
-Intoxicación por colchicina
-Leucemia mielomonocítica juvenil
-Leucodistrofia metacromática
-Neuropatía axonal aguda motora y sensitiva
-Neuropatía axonal motora aguda
-Neutropenia cíclica
-Síndrome de Alport - leiomiomatosis difusa ligada al X
-Síndrome de Crigler-Najjar
-Síndrome de Evans
-Síndrome de la persona rígida
-Síndrome de Senior-Loken
-Síndrome de Usher tipo 3
-Síndrome de Wiskott-Aldrich
-Urticaria familiar por frío
-Displasia espondilo-metafisaria tipo Kozlowski
-Distrofia muscular de cinturas autosómica recesiva tipo 2E
-Enfermedad de Lafora
-Epidermólisis ampollosa juntural
-Botulismo
-Cordoma
-Déficit congénito del factor II
-Déficit congénito del factor XIII
-Enfermedad de Gaucher tipo 3
-Enfermedad linfoproliferativa ligada al X
-Fibrodisplasia osificante progresiva
-Osteoporosis - pseudoglioma
-Tirosinemia tipo 1
-Enfermedad de Leber "plus"
-Síndrome de Naegeli-Franceschetti-Jadassohn
-Déficit de carbamil-fosfato sintetasa
-Distrofia muscular congénita con déficit de integrina
-Enfermedad de Pelizaeus-Merzbacher, forma connatal
-Enfermedad de Pelizaeus-Merzbacher, forma transitoria
-Linfoma hepatoesplénico de células T
-Síndrome de rubéola congénita
-Enfermedad de Gaucher tipo 2
-Forma fetal de la enfermedad de Gaucher
-Mucopolisacaridosis tipo 7 0,01
-Síndrome de Hutchinson-Gilford
-Acidemia propiónica
-Anemia de células falciformes
+Enfermedad de Morvan
+Neuropatía sensitiva autosómica dominante
+Neuropatía sensitiva autosómica recesiva
+Síndrome de Nelaton
+Neuropatía hereditaria motora y sensorial
+Síndrome de Riley-Day
+Síndrome de Horner
+Distrofia o parálisis simpática cervical
+Síndrome de Bernard
+Hidrocefalia
+Encefalopatía hipertensiva
+Edema cerebral
+Síndrome de Reye
+Siringomielia
+Siringobulbia
+Espondilopatía neurógena
+Muerte cerebral
+Mielografía
+Angiografía cerebral
+Electroencefalograma
+Potenciales evocados
+Electromiografía
+Polisomnografía
+Resonancia magnética
+Resonancia magnética funcional
+Resonancia magnética de la región lumbar
+RMN de la columna vertebral
+Tomografía computarizada
+Tomografía computarizada de la columna dorsal
+Tomografía por emisión de positrones
+Tomografía computarizada con emisión de un fotón único
+Punción espinal
+Fisioterapia neurológica
+Neurorehabilitación
+Cirugía de clipado microvascular
+Craneotomía
+Craneoplastía
+Derivación ventriculoperitoneal
+Resección de tumor cerebral
+Cirugía endoscópica de columna
+Cirugía endonasal endoscópica
+Neurocirugía de base de cráneo
+Cirugía neuro vascular
+Neurocirugía stereotactic
+Neurocirugía despierta
+Escitalopram
+Sertralina
+paroxetina
+Venlafaxina de liberación retardada
+Duloxetina
+Pregabalina
+Alprazolam
+Clonazepam
+Lorazepam
+Fluoxetina
+Paroxetina
+Sertralina
+Citalopram
+Escitalopram
+Venlafaxina
+Imipramina
+Amitriptilina
+Zolpidem
+Zopiclona
+Flunitrazepam
+Midazolam
+Nortriptilina
+Trazodona
+Bupropión
+Levodopa ó L-Dopa
+Pramipexol
+Ropinirol
+Rotigotina
+Memantina
+Amantadina
+Tetrabenazina
+Riluzole
+Baclofeno
