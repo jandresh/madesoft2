@@ -13,6 +13,8 @@ nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
 nltk.download('maxent_ne_chunker')
 nltk.download('words')
+from langdetect import detect
+import urllib.parse
 
 app = Flask(__name__)
 
@@ -130,10 +132,19 @@ def ner_from_text():
 # Este metodo es invocado de esta forma:
 # curl -X POST -H "Content-type: application/json" -d '{ "text": ""}' http://localhost:5002/text2emails
 
-
 @app.route("/text2emails", methods=['POST'])
 def emails_from_text():
     if not request.json:
         abort(400)
     text = request.json['text']
     return jsonify(emails=re.findall(r'[\w\.-]+@[\w\.-]+', text))
+
+# *****language_from_text()******
+# Este metodo es invocado de esta forma:
+# curl -X POST -H "Content-type: application/json" -d '{ "text": ""}' http://localhost:5002/text2lang
+
+@app.route("/text2lang", methods=['POST'])
+def language_from_text():
+    if not request.json:
+        abort(400)
+    return jsonify(lang=detect(request.json['text'].lower()))

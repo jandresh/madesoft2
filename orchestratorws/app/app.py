@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request
 import requests
+import urllib.parse
 
 app = Flask(__name__)
 
@@ -50,6 +51,7 @@ def pipeline3():
                     "coll-name" : "author_vs_doc_id{}".format(actual_pattern)
                 }
             )
+            print(f"pattern id: {pattern['id']}")
             if (pattern['db'] == 'PUBMED'):
                 try:
                     pmids_json = post_json_request(
@@ -57,8 +59,10 @@ def pipeline3():
                     pmids = pmids_json['pmids']
                 except:
                     pmids = None
+                print(f"pmids count: {len(pmids)}")
                 if pmids is not None:
                     for pmid in pmids:
+                        print(f"actual pmid: {pmid}")
                         if pmid is not None:
                             try:
                                 orcid = get_json_orcid_request("pmid", str(pmid))['expanded-result'][0]['orcid-id']
@@ -69,7 +73,22 @@ def pipeline3():
                                     'http://metapubws:5000/metadata', {"id": "{}".format(pmid)})
                             except:
                                 metadata_json = None
+                                print(f"can't get metadata for {pmid}")
+                            try:
+                                if metadata_json['abstract'] is not None:
+                                    text = metadata_json['abstract']
+                                elif metadata_json['title'] is not None:
+                                    text = metadata_json['title']
+                                else:
+                                    text = ""
+                                lang_json = post_json_request(
+                                    'http://preprocessingws:5000/text2lang', {"text": text})
+                                print(f"lang: {lang_json['lang']}")
+                            except:
+                                lang_json['lang'] = ""
+                                print(f"can't get language for {pmid}")
                             if metadata_json is not None:
+                                success_doc_insert = 1
                                 try:
                                     success_doc_insert = post_json_request(
                                         'http://dbws:5000/mongo-doc-insert',
@@ -77,6 +96,7 @@ def pipeline3():
                                             "db-name" : "adccali",
                                             "coll-name" : "metadata{}".format(actual_pattern),
                                             "document" : {
+                                                "pat_id": pattern['id'] if pattern['id'] is not None else "",
                                                 "pmid" : metadata_json['pmid'] if metadata_json['pmid'] is not None else "",
                                                 "coreid" : "",
                                                 "doi" : metadata_json['doi'] if metadata_json['doi'] is not None else "",
@@ -86,12 +106,15 @@ def pipeline3():
                                                 "authors" : metadata_json['authors'] if metadata_json['authors'] is not None else "",
                                                 "org" : "",
                                                 "url" : metadata_json['url'] if metadata_json['url'] is not None else "",
-                                                "year" : metadata_json['year'] if metadata_json['year'] is not None else ""
+                                                "year" : metadata_json['year'] if metadata_json['year'] is not None else "",
+                                                "lang" : lang_json['lang'] if lang_json['lang'] is not None else ""
                                             }
                                         }
                                     )
                                 except:
-                                    success_doc_insert = 1
+                                    print(f"Exception on can't insert document for {pmid}")
+                                if success_doc_insert == 0:
+                                    print(f"Inserted on mongo a doc for {pmid}")
                                 try:
                                     doc_id = metadata_json['pmid'] if metadata_json['pmid'] is not None else "000000",
                                     for i in range(len(metadata_json['authors'])):
@@ -102,7 +125,7 @@ def pipeline3():
                                                 "coll-name" : "author_vs_doc_id{}".format(actual_pattern),
                                                 "document" : {
                                                     "author" : metadata_json['authors'][i] if metadata_json['authors'][i] is not None else "",
-                                                    str(doc_id) : 1,
+                                                    str(doc_id[0]) : 1,
                                                     "orcid" : orcid,
                                                 }
                                             }

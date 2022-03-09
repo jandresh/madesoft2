@@ -1,153 +1,232 @@
-Enfermedad de Huntington
-Distrofia muscular
-Espina bífida
-Enfermedad de alzheimer
-Demencia frontotemporal
-Enfermedad de Pick
-Enfermedad de Alpers
-Deterioro cognitivo leve
-Degeneración corticobasal
-Enfermedad de epilepsia
-Meningitis bacteriana
-Meningitis no piógena
-Meningoencefalitis
-Meningomielitis
-Mielitis ascendente aguda
-Mielitis necrotizante subaguda
-Mielitis transversa aguda
-Encefalomielitis miálgica benigna
-Encefalopatía aguda necrotizante hemorrágica
-Esclerosis multiple
-Esclerosis tuberosa
-Esclerosis lateral amiotrófica
-Ataxia de Friedreich
-Demencia con cuerpos de Lewy
-Enfermedad de Parkinson
-Atrofia muscular espinal
-Accidente cerebrovascular
-Apoplejía cerebral
-Ataque cerebral
-Derrame cerebral
-Infarto cerebral
-Lupus eritematoso sistémico
-Corea de Huntington
-Demencia de Huntington
-Ataxia hereditaria
-Enfermedad de Strumpel-Lorrain
-Atrofia muscular espinal
-Neuromiopatía carcinomatosa
-Encefalopatía límbica paraneoplásica
-Síndrome neuroléptico maligno
-Enfermedad de la neurona motora
-Degeneración multisistémica del sistema nervioso autónomo
-Degeneración estriatonígrica
-Parálisis cerebral atetoide
-Migraña sin aura
-Migraña con aura
-Síndrome de Benedikt
-Síndrome de Claude
-Síndrome de Foville
-Síndrome de Millard-Gubler
-Síndrome de Wallenberg
-Síndrome de Weber
-Síndrome cerebrovascular cerebeloso
-Síndrome lacunar motor puro
-Síndrome lacunar sensitivo puro
-Trastornos del sueño
-Apnea del sueño
-Insomnio debido a un trastorno mental
-Insomnio idiopático
-Hipersomnia
-Hipoventilación alveolar no obstructiva
-Narcolepsia con cataplejia
-Narcolepsia sin cataplejia
-Paralisis del sueño aislada recurrente
-Síndrome de piernas inquietas
-Trastorno del sueño-vigilia
-Síndrome de Melkersson-Rosenthal
-Espasmo hemifacial clónico
-Neuralgia amiotrófica
-Neuritis de cintura escapular
-Síndrome de Parsonage-Aldren-Turner
-Síndrome de miembro fantasma
-Síndrome del túnel carpiano
-Síndrome del túnel tarsiano
-Enfermedad de Refsum
-Enfermedad de Morvan
-Neuropatía sensitiva autosómica dominante
-Neuropatía sensitiva autosómica recesiva
-Síndrome de Nelaton
-Neuropatía hereditaria motora y sensorial
-Síndrome de Riley-Day
-Síndrome de Horner
-Distrofia o parálisis simpática cervical
-Síndrome de Bernard
-Hidrocefalia
-Encefalopatía hipertensiva
-Edema cerebral
-Síndrome de Reye
-Siringomielia
-Siringobulbia
-Espondilopatía neurógena
-Muerte cerebral
-Mielografía
-Angiografía cerebral
-Electroencefalograma
-Potenciales evocados
-Electromiografía
-Polisomnografía
-Resonancia magnética
-Resonancia magnética funcional
-Resonancia magnética de la región lumbar
-RMN de la columna vertebral
-Tomografía computarizada
-Tomografía computarizada de la columna dorsal
-Tomografía por emisión de positrones
-Tomografía computarizada con emisión de un fotón único
-Punción espinal
-Fisioterapia neurológica
-Neurorehabilitación
-Cirugía de clipado microvascular
-Craneotomía
-Craneoplastía
-Derivación ventriculoperitoneal
-Resección de tumor cerebral
-Cirugía endoscópica de columna
-Cirugía endonasal endoscópica
-Neurocirugía de base de cráneo
-Cirugía neuro vascular
-Neurocirugía stereotactic
-Neurocirugía despierta
-Escitalopram
-Sertralina
-paroxetina
-Venlafaxina de liberación retardada
-Duloxetina
-Pregabalina
-Alprazolam
-Clonazepam
-Lorazepam
-Fluoxetina
-Paroxetina
-Sertralina
-Citalopram
-Escitalopram
-Venlafaxina
-Imipramina
-Amitriptilina
-Zolpidem
-Zopiclona
-Flunitrazepam
-Midazolam
-Nortriptilina
-Trazodona
-Bupropión
-Levodopa ó L-Dopa
-Pramipexol
-Ropinirol
-Rotigotina
-Memantina
-Amantadina
-Tetrabenazina
-Riluzole
-Baclofeno
+breast carcinoma
+breast angiosarcoma
+triple negative breast cancer
+infiltrating ductal carcinoma
+ductal carcinoma in situ
+invasive ductal carcinoma
+Tubular breast carcinoma
+Medullary breast carcinoma
+Mucinous breast carcinoma
+Papillary breast carcinoma
+Cribriform breast carcinoma
+invasive lobular carcinoma
+Inflammatory breast cancer
+lobular carcinoma in situ
+nodular basal cell carcinoma
+micronodular basal cell carcinoma
+breast metastatic carcinoma
+Paget's disease of the nipple
+breast phyllodes tumor
+Recurrent metastatic breast cancer
+metastasis breast cancer
+Adenomyoepithelioma breast cancer
+malignant breast tumor
+usual ductal hyperplasia
+apocrine metaplasia
+solid complex nodule
+hypoechoic nodule
+complex breast cyst
+collagenized breast myofibroblastoma
+adenoma tubularmama
+sclerosed fibroadenoma
+stromal fibrosis
+fibrosclerosis of the breast
+intraductal microcalcifications
+hamartoma breast
+ductal ectasia
+breast hypertrophy
+chronic granulomatous inflammation
+gynecomastia breast
+history of breast cancer
+breast cancer brca1
+breast cancer brca2
+hormone receptor breast cancer
+progesterone breast cancer
+human epidermal growth factor receptor breast cancer
+breast cancer HER-2
+cell proliferation marker Ki67
+breast cancer biopsy
+breast cancer mammogram
+breast cancer ultrasound
+breast cancer magnetic resonance imaging
+breast cancer chemoprophylaxis
+breast cancer prophylactic mastectomy
+breast cancer lumpectomy
+breast cancer tumorectomy
+breast cancer quadrantectomy
+breast cancer radical mastectomy
+breast cancer segmental mastectomy
+breast cancer mastectomy
+breast cancer lymphadenectomy
+breast cancer segmentectomy
+breast cancer chemotherapy
+breast cancer radiotherapy
+breast cancer radiofrequency ablation
+breast cancer cryoablation
+breast cancer brachytherapy
+breast cancer immunotherapy
+breast cancer hormonal therapy
+breast cancer Docetaxel
+breast cancer Paclitaxel
+breast cancer Taxotere
+breast cancer Taxol
+breast cancer Epirubicin
+breast cancer Doxorubicin
+breast cancer Doxil
+breast cancer Capecitabine
+breast cancer Eribulin
+breast cancer Gemcitabine
+breast cancer Fluorouracil
+breast cancer Gemzar
+breast cancer Ixabepilone
+breast cancer Methotrexate
+breast cancer Paclitaxel
+breast cancer Vinorelbine
+breast cancer Carboplatin
+breast cancer Cisplatin
+breast cancer Cyclophosphamide
+breast cancer Trastuzumab
+breast cancer Pertuzumab
+breast cancer Neratinib
+breast cancer Alpelisib
+breast cancer Lapatinib
+breast cancer Tucatinib
+breast cancer Sacituzumab
+breast cancer Larotrectinib
+breast cancer Olaparib
+breast cancer Talazoparib
+breast cancer Pembrolizumab
+breast cancer Precision medicine
+breast cancer hormonal treatment
+breast cancer neoadjuvant chemotherapy
+Drug Combinations Breast Cancer
+Breast cancer young women
+Breast cancer men
+breast cancer treatment options
+breast cancer alternative treatment
+breast cancer survival rate
+male breast cancer
+breast cancer biomarkers
+Prognostic factors breast cancer
+primary breast squamous cell carcinoma
+carcinoma mama
+angiosarcoma mama
+cáncer seno triple negativo
+cáncer mama triple negativo
+carcinoma ductal infiltrante
+carcinoma ductal in situ
+carcinoma ductal invasivo
+Carcinoma tubular mama
+Carcinoma medular mama
+Carcinoma mucinoso mama
+Carcinoma papilar mama
+Carcinoma cribiforme mama
+carcinoma lobular invasivo
+Cáncer mama inflamatorio
+carcinoma lobular in situ
+carcinoma basocelular nodular
+carcinoma basocelular micronodular
+carcinoma metastasico de mama
+Cáncer mama hombres
+Enfermedad de Paget en el pezón
+Tumor filodes mama
+Cáncer mama recurrente metastásico
+Cáncer mama metástasis
+adenomioepitelioma
+tumor maligno mama
+hiperplasia ductal usual
+metaplasia apocrina
+nódulo complejo solido
+nódulo hipoecoico
+quiste complejo mama
+miofibroblastoma mamario colagenizado
+adenoma tubularmama
+fibroadenoma esclerosado
+fibrosis estromal
+fibroesclerosis de mama
+microcalcificaciones intraductales
+hamartoma
+ectasia ductal
+hipertrofia mamaria
+inflamacion cronica granulomatosa
+ginecomastia
+ginecomastia bilateral
+mastitis periductal
+mastitis granulomatosa
+antecedentes de cáncer de mama
+cáncer de mama brca1
+cáncer de mama brca2
+cáncer mama receptores hormonales
+cáncer mama progesterona
+cáncer mama estrogenos
+receptor del factor de crecimiento epidérmico humano
+cáncer mama HER-2
+marcador de proliferación celular Ki67
+cáncer mama inmunohistoquimica
+citologia aspirativa
+cáncer mama biopsia
+cáncer mama biopsia aspirativa con aguja fina
+cáncer mama biopsia por congelación
+cáncer mama biopsia trucut
+Biopsia del ganglio linfático centinela
+Vaciamiento de los ganglios linfáticos axilares
+cáncer mama mamografía
+cáncer mama Ecografía de seno
+cáncer mama resonancia magnética
+cáncer mama autoexamen de mama
+cáncer mama quimioprofilaxis
+mastectomía profiláctica
+ooforectomía profiláctica
+cáncer mama Lumpectomía
+cáncer mama Tumorectomía
+cáncer mama cuadrantectomia
+cuadrantectomia guiada arpón
+mastectomía radical
+Mastectomía segmentaria
+mastectomía con reconstrucción
+cáncer mama linfadenectomía
+cáncer mama segmentectomia
+cáncer mama quimioterapia
+cáncer mama radioterapia
+cáncer mama ablación radiofrecuencia
+cáncer mama crioablación
+cáncer mama Braquiterapia
+cáncer mama Braquiterapia intracavitaria
+cáncer mama Braquiterapia intersticial
+cáncer mama terapia hormonal
+cáncer mama Inmunoterapia
+cáncer mama Docetaxel
+cáncer mama Paclitaxel
+cáncer mama Taxol
+cáncer mama Taxotere
+cáncer mama Epirubicina
+cáncer mama Doxorrubicina
+cáncer mama Doxorrubicina liposomal pegilada
+cáncer mama Doxil
+cáncer mama Capecitabina
+cáncer mama Eribulina
+cáncer mama Fluorouracilo
+cáncer mama Gemcitabina
+cáncer mama Gemzar
+cáncer mama Ixabepilona
+cáncer mama Metotrexato
+cáncer mama Paclitaxel
+cáncer mama Vinorelbina
+cáncer mama Carboplatino
+cáncer mama Cisplatino
+cáncer mama Ciclofosfamida
+cáncer mama tamoxifeno
+cáncer mama Trastuzumab
+cáncer mama Pertuzumab
+cáncer mama Neratinib
+cáncer mama Alpelisib
+cáncer mama Lapatinib
+cáncer mama Tucatinib
+cáncer mama Sacituzumab
+cáncer mama Larotrectinib
+cáncer mama Olaparib
+cáncer mama Talazoparib
+cáncer mama Pembrolizumab
+cáncer mama tratamientos
+cáncer mama medicina de precisión
+cáncer mama tratamientos alternativos

@@ -269,9 +269,9 @@ def mongo_db_create():
 def mongo_db_list():
     client = pymongo.MongoClient("mongodb://adccali:adccali@mongo:27017")
     out =""
-    for db in client.list_databases():
-        out+=str(db)
-    return out
+    # for db in client.list_databases():
+    #     out+=str(db)
+    return jsonify(databases=client.list_database_names())
 
 # *****mongo_db_delete()******
 # Este metodo es invocado de esta forma:
@@ -321,9 +321,9 @@ def mongo_coll_list():
     db_name = request.json['db-name']
     db = client[db_name]
     out =""
-    for coll in db.list_collection_names():
-        out+=str(coll)
-    return out
+    # for coll in db.list_collection_names():
+    #     out+=str(coll)
+    return jsonify(collections=db.list_collection_names())
 
 # *****mongo_coll_delete()******
 # Este metodo es invocado de esta forma:
@@ -382,8 +382,11 @@ def mongo_doc_list():
     client = pymongo.MongoClient("mongodb://adccali:adccali@mongo:27017")
     db = client[db_name]
     collection = db[coll_name]
-    out = collection.find()
-    return str(list(out))
+    data = []
+    for doc in collection.find():
+        doc['_id'] = str(doc['_id'])
+        data.append(doc)
+    return jsonify(data)
 
 # *****mongo_doc_delete()******
 # Este metodo es invocado de esta forma:
@@ -425,7 +428,11 @@ def mongo_doc_find():
         out = collection.find({}, query)
     except:
         out = None
-    return str(list(out))
+    data = []
+    for doc in out:
+        doc['_id'] = str(doc['_id'])
+        data.append(doc)
+    return jsonify(data)
 
 # *****pipeline1()******
 # Este metodo es invocado de esta forma:
