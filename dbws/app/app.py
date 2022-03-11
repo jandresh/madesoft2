@@ -412,7 +412,7 @@ def mongo_doc_delete():
 
 # *****mongo_doc_find()******
 # Este metodo es invocado de esta forma:
-# curl -X POST -H "Content-type: application/json" -d '{"db-name" : "adccali", "coll-name" : "Breast", "query" : {"doc-name" : "Breast cancer history"}}' http://localhost:5001/mongo-doc-find
+# curl -X POST -H "Content-type: application/json" -d '{"db-name" : "adccali", "coll-name" : "Breast", "query" : {"doc-name" : "Breast cancer history"}, "projection" : {}}' http://localhost:5001/mongo-doc-find
 
 @app.route('/mongo-doc-find', methods=['POST'])
 def mongo_doc_find():
@@ -422,10 +422,11 @@ def mongo_doc_find():
         db_name = request.json['db-name']
         coll_name = request.json['coll-name']
         query = request.json['query']
+        projection = request.json['projection']
         client = pymongo.MongoClient("mongodb://adccali:adccali@mongo:27017")
         db = client[db_name]
         collection = db[coll_name]
-        out = collection.find({}, query)
+        out = collection.find(query, projection)
     except:
         out = None
     data = []
@@ -433,6 +434,28 @@ def mongo_doc_find():
         doc['_id'] = str(doc['_id'])
         data.append(doc)
     return jsonify(data)
+
+# *****mongo_doc_distinct()******
+# Este metodo es invocado de esta forma:
+# curl -X POST -H "Content-type: application/json" -d '{"db-name" : "adccali", "coll-name" : "author_vs_doc_id2", "field" : "author", "query" : {}, "options" : {}}' http://localhost:5001/mongo-doc-distinct | jq
+
+@app.route('/mongo-doc-distinct', methods=['POST'])
+def mongo_doc_distinct():
+    if not request.json:
+        abort(400)
+    try:
+        db_name = request.json['db-name']
+        coll_name = request.json['coll-name']
+        field = request.json['field']
+        query = request.json['query']
+        options = request.json['options']
+        client = pymongo.MongoClient("mongodb://adccali:adccali@mongo:27017")
+        db = client[db_name]
+        collection = db[coll_name]
+        out = collection.distinct(field, query, options)
+    except:
+        out = None
+    return jsonify(result=out)
 
 # *****pipeline1()******
 # Este metodo es invocado de esta forma:
