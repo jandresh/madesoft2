@@ -63,9 +63,9 @@ def pipeline3():
                     pmids_json = post_json_request(
                         'http://metapubws:5000/pmids', {"query": pattern['pattern']})
                     pmids = pmids_json['pmids']
+                    print(f"pmids count: {len(pmids)}")
                 except:
                     pmids = None
-                print(f"pmids count: {len(pmids)}")
                 if pmids is not None:
                     for pmid in pmids:
                         print(f"actual pmid: {pmid}")

@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 #
 # Author: Jaime Hurtado - jaime.hurtado@correounivalle.edu.co
-# Fecha: 2021-03-02
+# Fecha: 2022-03-02
 #
 from flask import Flask, jsonify, request
 from metapub import PubMedFetcher
 from metapub import FindIt
+import time
 
 app = Flask(__name__)
 
@@ -30,7 +31,14 @@ def title_from_pmid():
     if not request.json:
         abort(400)
     pmid = request.json['id']
-    article = fetch.article_by_pmid(pmid)
+    unsuccess = True
+    while (unsuccess):
+        try:
+            article = fetch.article_by_pmid(pmid)
+            unsuccess = False
+        except:
+            time.sleep(10)
+            unsuccess = True
     return jsonify(title=article.title)
 #
 # *****abstract_from_pmid()******
@@ -45,7 +53,14 @@ def abstract_from_pmid():
     if not request.json:
         abort(400)
     pmid = request.json['id']
-    article = fetch.article_by_pmid(pmid)
+    unsuccess = True
+    while (unsuccess):
+        try:
+            article = fetch.article_by_pmid(pmid)
+            unsuccess = False
+        except:
+            time.sleep(10)
+            unsuccess = True
     return jsonify(abstract=article.abstract)
 #
 # *****pmid_from_query()******
@@ -60,7 +75,14 @@ def pmid_from_query():
     if not request.json:
         abort(400)
     query = request.json['query']
-    pmids = fetch.pmids_for_query(query, retmax=10000)
+    unsuccess = True
+    while (unsuccess):
+        try:
+            pmids = fetch.pmids_for_query(query, retmax=10000)
+            unsuccess = False
+        except:
+            time.sleep(10)
+            unsuccess = True
     return jsonify(pmids=pmids)
 
 #
@@ -76,10 +98,14 @@ def metadata_from_pmid():
     if not request.json:
         abort(400)
     pmid = request.json['id']
-    try:
-        article = fetch.article_by_pmid(pmid)
-    except:  # Pendiente manejo excepciones
-        article = None
+    unsuccess = True
+    while (unsuccess):
+        try:
+            article = fetch.article_by_pmid(pmid)
+            unsuccess = False
+        except:
+            time.sleep(10)
+            unsuccess = True
     return jsonify(
         pmid=article.pmid,
         title=article.title,
@@ -137,8 +163,8 @@ def pdf_from_pmid():
     if not request.json:
         abort(400)
     pmid = request.json['id']
-    src = FindIt(pmid)
-    print(src.url)
-    return jsonify(
-        pdf_url=src.url
-    )
+    try:
+        src = FindIt(pmid)
+    except:
+        return jsonify(pdf_url="")
+    return jsonify(pdf_url=src.url)
