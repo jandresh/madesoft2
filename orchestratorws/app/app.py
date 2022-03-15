@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 import requests
 import urllib.parse
+import sys
 
 app = Flask(__name__)
 
@@ -116,27 +117,31 @@ def pipeline3():
                                     print(f"Exception on can't insert document for {pmid}")
                                 if success_doc_insert == 0:
                                     print(f"Inserted on mongo a doc for {pmid}")
-                                try:
-                                    doc_id = metadata_json['pmid'] if metadata_json['pmid'] is not None else "000000",
-                                    for i in range(len(metadata_json['authors'])):
-                                        try:
-                                            orcid = get_json_orcid_request(str(metadata_json['authors'][i]))['expanded-result'][0]['orcid-id']
-                                        except:
-                                            orcid = ""
+                                print(f"metadata authors {metadata_json['authors']}:{type(metadata_json['authors'])}")
+                                for author in list(metadata_json['authors']):
+                                    # try:
+                                    #     # orcid = get_json_orcid_request(str(author))['expanded-result'][0]['orcid-id']
+                                    #     orcid = ""
+                                    # except:
+                                    #     orcid = ""
+                                    print(f"Inserted on mongo a doc for {author}")
+                                    sys.stdout.flush()
+                                    success_author_insert = 1
+                                    try:
                                         success_author_insert = post_json_request(
                                             'http://dbws:5000/mongo-doc-insert',
                                             {
                                                 "db-name" : "authors",
                                                 "coll-name" : f"author_vs_doc_id_{actual_pattern}",
                                                 "document" : {
-                                                    "author" : metadata_json['authors'][i] if metadata_json['authors'][i] is not None else "",
-                                                    "doc_id" : str(doc_id[0]),
-                                                    "orcid" : orcid,
+                                                    "author" : author,
+                                                    "doc_id" : metadata_json['pmid'] if metadata_json['pmid'] is not None else "",
+                                                    # "orcid" : orcid,
                                                 }
                                             }
                                         )
-                                except:
-                                    success_author_insert = 1
+                                    except:
+                                        success_author_insert = 1
             actual_pattern += 1
     return jsonify(patterns_list)
 
@@ -187,4 +192,60 @@ def pipeline4():
             except:
                 print("error on works insert")
             print(f"Author: {author}, works: {works}")
+    return jsonify(author_list)
+
+@app.route('/pipeline5', methods=['GET'])
+def pipeline5():
+    db_name = 'network'
+    create_network_db = post_json_request(
+        'http://dbws:5000/mongo-db-create',
+        {"db-name" : db_name}
+    )
+    coll_list = post_json_request(
+        'http://dbws:5000/mongo-coll-list',
+        {"db-name" : "authors"}
+    )
+    for collection in coll_list['collections']:
+        coll_name = f"related{collection.replace('author_vs_doc_id', '')}"
+        works_coll = f"works{collection.replace('author_vs_doc_id', '')}"
+        create_mongo_coll_metadata = post_json_request(
+            'http://dbws:5000/mongo-coll-create',
+            {
+                "db-name" : db_name,
+                "coll-name" : coll_name,
+            }
+        )
+        author_list = post_json_request(
+            'http://dbws:5000/mongo-doc-distinct',
+            {"db-name" : "authors", "coll-name" : collection, "field" : "author", "query" : {}, "options" : {}}
+        )
+        for author in author_list['result']:
+            author_works = post_json_request(
+                'http://dbws:5000/mongo-doc-find',
+                {"db-name" : db_name, "coll-name" : works_coll, "query" : {"author" : author}, "projection" : {"works": 1}}
+            )
+            for work in author_works[0]['works']:
+                authors_related = post_json_request(
+                    'http://dbws:5000/mongo-doc-find',
+                    {"db-name" : db_name, "coll-name" : works_coll, "query" : {"works" : work, "author" : { "$ne": author }}, "projection" : {"author": 1}}
+                )
+                for author_related in authors_related:
+                    try:
+                        success_related_insert = post_json_request(
+                            'http://dbws:5000/mongo-doc-insert',
+                            {
+                                "db-name" : db_name,
+                                "coll-name" : coll_name,
+                                "document" : {
+                                    "author" : author,
+                                    "related" : {
+                                        "author" : author_related['author'],
+                                        "doc_id" : work,
+                                    },
+                                }
+                            }
+                        )
+                    except:
+                        print("error on related insert")
+                    print(f"a_author: {author}, b_author: {author_related['author']}, related_docs: {work}")
     return jsonify(author_list)
