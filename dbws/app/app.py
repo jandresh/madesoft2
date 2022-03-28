@@ -21,16 +21,15 @@ def post_json_request(url, obj):
 
 def execute_mysql_query(query, connection):
 
-    cursor = connection.cursor()
     try:
+        cursor = connection.cursor()
         cursor.execute(query)
         columns = cursor.description
         results = [{columns[index][0]:column for index,
                     column in enumerate(value)} for value in cursor.fetchall()]
     except Exception as e:
         print (str(e))
-        results = None
-
+        results = [{"error" : str(e)}]
     cursor.close()
 
     return results
@@ -38,15 +37,17 @@ def execute_mysql_query(query, connection):
 
 def execute_mysql_query2(query, connection):
 
-    cursor = connection.cursor()
+    result = 0
     try:
+        cursor = connection.cursor()
         cursor.execute(query)
         connection.commit()
-        cursor.close()
     except Exception as e:
         print (str(e))
-        results = None
-    return results
+        result = 1
+    cursor.close()
+
+    return result
 
 
 def txt2text(path):
@@ -83,17 +84,14 @@ def root():
 @app.route('/init', methods=['GET'])
 def init():
     connection = mysql.connector.connect(**config)
-    # Init tables
-    # database_init()
-    try:
-        execute_mysql_query2(
+    error = execute_mysql_query2(
             """CREATE TABLE patterns (
                     id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
                     pattern TEXT NOT NULL,
                     db TEXT NOT NULL,
                     description TEXT
                 )""", connection)
-        execute_mysql_query2(
+    error += execute_mysql_query2(
                 """CREATE TABLE searches (
                     patid INT(10) NOT NULL,
                     docid INT(10) NOT NULL,
@@ -102,11 +100,10 @@ def init():
                     ftext MEDIUMTEXT,
                     PRIMARY KEY (patid,docid)
                 )""", connection)
-    except:
+    if error:
         print('Error on tables creation')
-    results = execute_mysql_query('SELECT * FROM patterns', connection)
     connection.close()
-    return jsonify(results)
+    return jsonify(error=error)
 
 # *****patten_insert()******
 # Este metodo es invocado de esta forma:
@@ -121,13 +118,12 @@ def pattern_insert():
     pattern = request.json['pattern']
     db = request.json['db']
     description = request.json['description']
-    try:
-        query = 'INSERT INTO patterns (pattern, db, description) VALUES ("%s", "%s", "%s");' % (
-            pattern, db, description)
-        execute_mysql_query2(query, connection)
+    query = 'INSERT INTO patterns (pattern, db, description) VALUES ("%s", "%s", "%s");' % (
+        pattern, db, description)
+    error = execute_mysql_query2(query, connection)
+    result = [{"output": "Pattern can't be inserted"}]
+    if not error:
         result = execute_mysql_query('SELECT * FROM patterns', connection)
-    except:
-        result = "Pattern can't be inserted"
     connection.close()
     return jsonify(result)
 
@@ -183,30 +179,24 @@ def txt_patterns_file_insert():
                 pattern += '%s)' % (query_words[i])
             else:
                 pattern += '%s AND ' % (query_words[i])
-        try:
-            query = 'INSERT INTO patterns (pattern, db, description) VALUES ("%s", "%s", "%s");' % (
-                pattern, 'CORE', 'Corpus 1')
-            execute_mysql_query2(query, connection)
-        except:
-            error_count += 1
+        query = 'INSERT INTO patterns (pattern, db, description) VALUES ("%s", "%s", "%s");' % (
+            pattern, 'CORE', 'Corpus 1')
+        error_count += execute_mysql_query2(query, connection)
         pattern = ''
         for i in range(len(query_words)):
             if(i == len(query_words)-1):
                 pattern += '%s[Title/Abstract]' % (query_words[i])
             else:
                 pattern += '%s[Title/Abstract] AND ' % (query_words[i])
-        try:
-            query = 'INSERT INTO patterns (pattern, db, description) VALUES ("%s", "%s", "%s");' % (
-                pattern, 'PUBMED', 'Corpus 1')
-            execute_mysql_query2(query, connection)
-        except:
-            error_count += 1
-    if(error_count == 0):
+        query = 'INSERT INTO patterns (pattern, db, description) VALUES ("%s", "%s", "%s");' % (
+            pattern, 'PUBMED', 'Corpus 1')
+        error_count += execute_mysql_query2(query, connection)
+    if not error_count:
         result = execute_mysql_query('SELECT * FROM patterns', connection)
     else:
-        result = "%i Patterns can't be inserted" % (error_count)
+        result = [{"error" : "%i Patterns can't be inserted" % (error_count)}]
     connection.close()
-    return jsonify(result=result)
+    return jsonify(result)
 
 # *****patterns()******
 # Este metodo es invocado de esta forma:
@@ -502,14 +492,12 @@ def pipeline1():
                         else:
                             insert_title = metadata_json['title']
                         if insert_mysql:
-                            try:
-                                query = 'INSERT INTO searches (patid, docid, title, abs, ftext) VALUES (%s,%s,"%s","%s","%s") ON DUPLICATE KEY UPDATE title="%s", abs="%s", ftext="%s";' % (pattern['id'], doc_id, insert_title.replace(
-                                    '"', '').replace('\n', ''), insert_abstract.replace('"', '').replace('\n', ''), '', insert_title.replace('"', '').replace('\n', ''), insert_abstract.replace('"', '').replace('\n', ''), '')
-                                results = execute_mysql_query2(
-                                    query, connection)
+                            query = 'INSERT INTO searches (patid, docid, title, abs, ftext) VALUES (%s,%s,"%s","%s","%s") ON DUPLICATE KEY UPDATE title="%s", abs="%s", ftext="%s";' % (pattern['id'], doc_id, insert_title.replace(
+                                '"', '').replace('\n', ''), insert_abstract.replace('"', '').replace('\n', ''), '', insert_title.replace('"', '').replace('\n', ''), insert_abstract.replace('"', '').replace('\n', ''), '')
+                            error = execute_mysql_query2(query, connection)
+                            if not error:
                                 success = 1
-                            except:
-                                query = "Mysql not executed"
+                            else:
                                 success = 0
                     insert_counter += success
                     print("insert_counter:%s" % insert_counter)
@@ -538,13 +526,12 @@ def pipeline1():
                         insert_fulltext = ""
                     else:
                         insert_fulltext = metadata_json['fullText']
-                    try:
-                        query = 'INSERT INTO searches (patid, docid, title, abs, ftext) VALUES (%s,%s,"%s","%s","%s") ON DUPLICATE KEY UPDATE title="%s", abs="%s", ftext="%s";' % (pattern['id'], doc_id, insert_title.replace(
-                            '"', '').replace('\n', ''), insert_abstract.replace('"', '').replace('\n', ''), insert_fulltext.replace('"', '').replace('\n', ''), insert_title.replace('"', '').replace('\n', ''), insert_abstract.replace('"', '').replace('\n', ''), insert_fulltext.replace('"', '').replace('\n', ''))
-                        results = execute_mysql_query2(query, connection)
+                    query = 'INSERT INTO searches (patid, docid, title, abs, ftext) VALUES (%s,%s,"%s","%s","%s") ON DUPLICATE KEY UPDATE title="%s", abs="%s", ftext="%s";' % (pattern['id'], doc_id, insert_title.replace(
+                        '"', '').replace('\n', ''), insert_abstract.replace('"', '').replace('\n', ''), insert_fulltext.replace('"', '').replace('\n', ''), insert_title.replace('"', '').replace('\n', ''), insert_abstract.replace('"', '').replace('\n', ''), insert_fulltext.replace('"', '').replace('\n', ''))
+                    error = execute_mysql_query2(query, connection)
+                    if not error:
                         success = 1
-                    except:
-                        query = "Mysql not executed"
+                    else:
                         success = 0
                     insert_counter += success
                 print("insert_counter:%s" % insert_counter)
