@@ -78,7 +78,7 @@ def pmid_from_query():
     unsuccess = True
     while (unsuccess):
         try:
-            pmids = fetch.pmids_for_query(query, retmax=10000)
+            pmids = fetch.pmids_for_query(query, retmax=100)
             unsuccess = False
         except:
             time.sleep(10)

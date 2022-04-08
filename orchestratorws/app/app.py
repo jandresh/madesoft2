@@ -130,6 +130,7 @@ def pipeline3():
                                                     "author" : author,
                                                     "doc_id" : metadata_json['pmid'] if metadata_json['pmid'] is not None else "",
                                                     # "orcid" : orcid,
+                                                    # Afiliacion y correo
                                                 }
                                             }
                                         )
