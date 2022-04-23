@@ -1,5 +1,6 @@
 import csv
-from flask import Flask, jsonify, request
+import json
+from flask import Flask, jsonify, request, Response
 import pymongo
 import mysql.connector
 import requests
@@ -207,7 +208,12 @@ def patterns():
     connection = mysql.connector.connect(**config)
     results = execute_mysql_query('SELECT * FROM patterns', connection)
     connection.close()
-    return jsonify(results)
+    resp = Response(
+        response=json.dumps(results),
+        mimetype="application/json"
+        )
+    resp.headers['Access-Control-Allow-Origin'] = '*'
+    return resp
 
 # *****searches()******
 # Este metodo es invocado de esta forma:

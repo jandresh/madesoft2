@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+  guiws:
+    build: .
+    ports:
+      - "3080:3080"
+    networks:
+      - pipeline
+    volumes:
+      - ./:/app
+networks:
+  pipeline:
+    external: true
+    name: custompipeline
